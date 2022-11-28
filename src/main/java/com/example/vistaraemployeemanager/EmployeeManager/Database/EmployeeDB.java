@@ -15,15 +15,6 @@ public class EmployeeDB {
         return DriverManager.getConnection(url);
     }
 
-    private static void shutdownDerby() {
-        Connection conn;
-        try {
-            conn = DriverManager.getConnection("jdbc:derby:;shutdown=true;");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     public static boolean add(Employee employee) throws SQLException {
         try (var conn = getConnection();
              var stmt = conn.createStatement()) {
