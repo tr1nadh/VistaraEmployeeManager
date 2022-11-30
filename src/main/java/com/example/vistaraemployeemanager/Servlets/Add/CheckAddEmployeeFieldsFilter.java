@@ -1,10 +1,11 @@
 package com.example.vistaraemployeemanager.Servlets.Add;
 
-import com.example.vistaraemployeemanager.EmployeeManager.Employee;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 
 import java.io.IOException;
+
+import com.example.vistaraemployeemanager.EM.Employee;
 
 
 @WebFilter("/addEmployee")

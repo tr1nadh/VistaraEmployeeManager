@@ -1,10 +1,10 @@
 package com.example.vistaraemployeemanager.EmployeeManager.Database;
 
-import com.example.vistaraemployeemanager.EmployeeManager.Employee;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
+
+import com.example.vistaraemployeemanager.EM.Employee;
 
 public class EmployeeDB {
 
