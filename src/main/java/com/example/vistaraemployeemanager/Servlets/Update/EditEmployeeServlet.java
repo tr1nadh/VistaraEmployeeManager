@@ -1,15 +1,17 @@
 package com.example.vistaraemployeemanager.Servlets.Update;
 
-import com.example.vistaraemployeemanager.EmployeeManager.Employee;
-import com.example.vistaraemployeemanager.EmployeeManager.EmployeeManager;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import com.example.vistaraemployeemanager.EM.Employee;
+import com.example.vistaraemployeemanager.EM.EmployeeManager;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 
 
 @WebServlet("/editEmployee")
@@ -24,7 +26,7 @@ public class EditEmployeeServlet extends HttpServlet {
     }
 
     private void showFields(HttpServletRequest req, HttpServletResponse res, PrintWriter writer, Employee employee) throws ServletException, IOException {
-        req.getRequestDispatcher("editEmployee.html").include(req, res);
+        req.getRequestDispatcher("edit-employee.html").include(req, res);
         var htmlData = "<div>" +
                 "<form action='saveEmployee' method='post'>\n" +
                 "  <label class='hide'>Id <input type='text' name='id' value='"+ employee.getId() +"'></label> <br>\n" +

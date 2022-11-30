@@ -1,6 +1,6 @@
 package com.example.vistaraemployeemanager.EmployeeManager.Database;
 
-import com.example.vistaraemployeemanager.EmployeeManager.Employee;
+import com.example.vistaraemployeemanager.EM.Employee;
 
 public class EmployeeDBQueryManager {
     private static final String TABLE_NAME = "Employee";

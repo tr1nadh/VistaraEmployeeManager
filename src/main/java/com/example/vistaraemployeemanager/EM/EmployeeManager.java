@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.EmployeeManager;
+package com.example.vistaraemployeemanager.EM;
 
 import com.example.vistaraemployeemanager.EmployeeManager.Database.EmployeeDB;
 

@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.EmployeeManager;
+package com.example.vistaraemployeemanager.EM;
 
 public class EmployeeIDGenerator {
     // TODO:: Create JSON for this to Manager settings

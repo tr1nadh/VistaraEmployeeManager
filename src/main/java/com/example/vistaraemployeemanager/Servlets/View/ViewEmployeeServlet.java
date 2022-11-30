@@ -1,6 +1,5 @@
 package com.example.vistaraemployeemanager.Servlets.View;
 
-import com.example.vistaraemployeemanager.EmployeeManager.EmployeeManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -8,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import com.example.vistaraemployeemanager.EM.EmployeeManager;
 
 
 @WebServlet("/view")
@@ -17,7 +18,7 @@ public class ViewEmployeeServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         res.setContentType("text/html");
         var writer = res.getWriter();
-        req.getRequestDispatcher("viewEmployee.html").include(req, res);
+        req.getRequestDispatcher("view-employee.html").include(req, res);
         printEmployeesTable(writer);
         addAddEmployeeBTN(writer);
         writer.close();
