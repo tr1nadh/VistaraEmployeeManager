@@ -20,14 +20,13 @@ public class ViewEmployeeServlet extends HttpServlet {
         var writer = res.getWriter();
         req.getRequestDispatcher("view-employee.html").include(req, res);
         printEmployeesTable(writer);
-        addAddEmployeeBTN(writer);
         writer.close();
     }
 
     private void addAddEmployeeBTN(PrintWriter writer) {
         var addBTN = """
                 <form action='add' method='post'>
-                <button class='button' type='submit'>Add</button>
+                <button class='btn btn-outline-primary' type='submit'>Add</button>
                 </form>
                 """;
         writer.println(addBTN);
@@ -45,12 +44,16 @@ public class ViewEmployeeServlet extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        writer.println("</table>");
+        addAddEmployeeBTN(writer);
+        writer.println("</tbody></table></div>");
     }
 
     private void printEmployeesTableHead(PrintWriter writer) {
         var tableHead = """
-                <table id='employees'>
+                <div class='container border mt-3'>
+                <h2 class='text-center mb-4'>View Employees</h2>
+                <table class='table table-hover'>
+                <tbody>
                 <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -74,8 +77,8 @@ public class ViewEmployeeServlet extends HttpServlet {
                     "<td>"+ emp.getPassword() +"</td>\n" +
                     "<td>"+ emp.getEmail() +"</td>\n" +
                     "<td>"+ emp.getCountry() +"</td>\n" +
-                    "<td> <a href='editEmployee?id="+id+"'>Edit</a> </td>\n" +
-                    "<td> <a href='deleteEmployee?id="+id+"'>Delete</a> </td>\n" +
+                    "<td> <a class='btn btn-success btn-sm' href='editEmployee?id="+id+"'>Edit</a> </td>\n" +
+                    "<td> <a class='btn btn-danger btn-sm' href='deleteEmployee?id="+id+"'>Delete</a> </td>\n" +
                     "</tr>");
         }
     }
