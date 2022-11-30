@@ -27,31 +27,39 @@ public class EditEmployeeServlet extends HttpServlet {
 
     private void showFields(HttpServletRequest req, HttpServletResponse res, PrintWriter writer, Employee employee) throws ServletException, IOException {
         req.getRequestDispatcher("edit-employee.html").include(req, res);
-        var htmlData = "<div>" +
+        var htmlData = "<div class='container border mt-3'>" +
+                "      <h2 class='text-center mb-4'>Edit employee</h2>" +
                 "<form action='saveEmployee' method='post'>\n" +
                 "  <label class='hide'>Id <input type='text' name='id' value='"+ employee.getId() +"'></label> <br>\n" +
                 "\n" +
-                "  <label>Name <input type='text' name='name' value='"+ employee.getName() +"'></label> <br>\n" +
+                "<div class='form-floating mb-3 mt-3'>" +
+                "<input class='form-control' type='name' placeholder='Enter name' name='name' value='"+ employee.getName() +"' />" +
+                "  <label>Name</label> <br>\n" +
+                "</div>" +
                 "\n" +
-                "  <label>Password <input type='password' name='password' value='"+ employee.getPassword() +"'></label> <br>\n" +
+                "<div class='form-floating mb-3 mt-3'>" +
+                "<input class='form-control' type='password' placeholder='Enter password' name='password' value='"+ employee.getPassword() +"' />" +
+                "  <label>Password</label> <br>\n" +
+                "</div>" +
                 "\n" +
-                "  <label>Email <input type='email' name='email' value='"+ employee.getEmail() +"'></label> <br>\n" +
+                "<div class='form-floating mb-3 mt-3'>" +
+                "<input class='form-control' type='email' placeholder='Enter email' name='email' value='"+ employee.getEmail() +"' />" +
+                "  <label>Email</label> <br>\n" +
+                "</div>"+
                 "\n" +
-                "  <label> Country\n" +
-                "    <select name='country'>\n" +
+                "  <div class='mb-3 mt-3'> Country\n" +
+                "    <select class='form-select form-select-md' name='country'>\n" +
                 "      <option value='India'>India</option>\n" +
                 "      <option value='UK'>UK</option>\n" +
                 "      <option value='USA'>USA</option>\n" +
                 "      <option value='UAE'>UAE</option>\n" +
                 "      <option value='Other'>Other</option>\n" +
                 "    </select>\n" +
-                "  </label>\n" +
+                "  </div>\n" +
                 "\n" +
-                "  <input type='submit' value='Edit & Save'>\n" +
+                "  <input class='btn btn-outline-primary' type='submit' value='Edit & Save'>\n" +
+                " <a class='btn btn-outline-dark' href='view'>View</a>" +
                 "</form>" +
-                "  <form action=\"view\" method='post'>\n" +
-                "    <input type=\"submit\" value=\"View\">\n" +
-                "  </form>\n" +
                 "</div>";
         writer.println(htmlData);
     }
