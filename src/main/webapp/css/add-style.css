@@ -1,27 +1,4 @@
-h1 {
-    text-align: center;
-}
-
-#form-div {
-    border: 2px solid black;
-    padding: 20px;
-}
-
-#add-form {
-    border: 2px solid black;
-    padding: 20px;
+.container {
+    padding: 30px;
     width: fit-content;
-    font-size: large;
-}
-
-#add-from, label {
-    border: 1px solid black;
-    padding: 10px 30px;
-    margin: 10px;
-}
-
-#add-from, input {
-    border: 1px solid black;
-    padding: 10px;
-    margin: 10px;
 }
