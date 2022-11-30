@@ -12,6 +12,6 @@ public class ShowAddEmployeeFieldsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        req.getRequestDispatcher("add/addEmployee.html").include(req, res);
+        req.getRequestDispatcher("addEmployee.html").include(req, res);
     }
 }
