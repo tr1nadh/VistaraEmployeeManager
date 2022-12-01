@@ -1,7 +1,7 @@
 package com.example.vistaraemployeemanager.EM;
 
-import com.example.vistaraemployeemanager.EmployeeManager.Database.EmployeeDao;
 
+import com.example.vistaraemployeemanager.Dao.EmployeeDao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
