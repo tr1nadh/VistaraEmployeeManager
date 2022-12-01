@@ -3,6 +3,7 @@ package com.example.vistaraemployeemanager.Servlets.Update;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Optional;
 
 import com.example.vistaraemployeemanager.EM.Employee;
 import com.example.vistaraemployeemanager.EM.EmployeeManager;
@@ -21,6 +22,7 @@ public class EditEmployeeServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         var writer = res.getWriter();
         var employee = getEmployeeDependsOnMethod(req);
+        if (employee == null) throw new IllegalStateException("No user with this ID");
         showFields(req, res, writer, employee);
         writer.close();
     }
@@ -68,14 +70,17 @@ public class EditEmployeeServlet extends HttpServlet {
         if (req.getMethod().equals("GET")) {
             var id = Integer.parseInt(req.getParameter("id"));
             var employee = getEmployee(id);
-            employee.setId(id);
-            return employee;
+            if (employee.isPresent()) {
+                employee.get().setId(id);
+                return employee.get();
+            }
+            return null;
         }
         else return (Employee) req.getAttribute("employee");
     }
 
-    private Employee getEmployee(int id) {
-        Employee employee;
+    private Optional<Employee> getEmployee(int id) {
+        Optional<Employee> employee;
         try {
             employee = EmployeeManager.getEmployee(id);
         } catch (SQLException e) {
