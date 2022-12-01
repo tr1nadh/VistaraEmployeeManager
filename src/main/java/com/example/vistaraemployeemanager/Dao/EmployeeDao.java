@@ -5,32 +5,35 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
+import org.jdbi.v3.core.Jdbi;
+
 public class EmployeeDao {
 
     private static final String url = "jdbc:derby:/mnt/DRIVE/Programming/Projects/VistaraEmployeeManager/src/main/resources/VistaraEmployeeManagerDB;";
 
+    private static final Jdbi jdbi = Jdbi.create(Datasource.getDatasource());
 
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url);
     }
 
-    public static boolean add(Employee employee) throws SQLException {
-        try (var conn = getConnection();
-             var stmt = conn.createStatement()) {
-            var query = EmployeeDBQueryManager.getInsertQuery(employee);
-            return stmt.execute(query);
-        }
+    public static Object add(Employee employee) throws SQLException {
+        var query = EmployeeDBQueryManager.getInsertQuery(employee);
+        return jdbi.withHandle(handle -> {
+            return handle.execute(query, "");
+        });
+        
     }
 
-    public static CompletableFuture<Boolean> addAsync(Employee employee) {
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                return add(employee);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        });
-    }
+    // public static CompletableFuture<Boolean> addAsync(Employee employee) {
+    //     return CompletableFuture.supplyAsync(() -> {
+    //         try {
+    //             return add(employee);
+    //         } catch (SQLException e) {
+    //             throw new RuntimeException(e);
+    //         }
+    //     });
+    // }
 
     public static int remove(int id) throws SQLException {
         try (var conn = getConnection();
