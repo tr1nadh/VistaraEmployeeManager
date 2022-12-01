@@ -1,11 +1,9 @@
 package com.example.vistaraemployeemanager;
 
-import java.util.ArrayList;
-import java.util.Optional;
 
+import java.util.Optional;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.mapper.reflect.FieldMapper;
-
 import com.example.vistaraemployeemanager.Dao.Datasource;
 import com.example.vistaraemployeemanager.Dao.EmployeeDBQueryManager;
 import com.example.vistaraemployeemanager.EM.Employee;
