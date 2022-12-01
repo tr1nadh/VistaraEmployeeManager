@@ -11,7 +11,7 @@ public class Datasource {
     
     public static DataSource getDatasource() {
         var config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306");
+        config.setJdbcUrl("jdbc:mysql://localhost:3306/employeesdb");
         config.setUsername("root");
         config.setPassword("***REMOVED***");
         config.addDataSourceProperty("cachePrepStmts", "true");

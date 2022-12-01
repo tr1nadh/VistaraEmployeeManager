@@ -4,6 +4,7 @@ package com.example.vistaraemployeemanager.EM;
 import com.example.vistaraemployeemanager.Dao.EmployeeDao;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class EmployeeManager {
 
@@ -13,7 +14,7 @@ public class EmployeeManager {
 
         employee.setId(generateId());
         var response = EmployeeDao.add(employee);
-        if (!(boolean)response) System.out.println("Employee added: " + employee.getName());
+        if (response > 0) System.out.println("Employee added: " + employee.getName());
         else System.out.println("Unable to add employee: " + employee.getName());
     }
 
@@ -41,7 +42,7 @@ public class EmployeeManager {
         return employees.get();
     }
 
-    public static Employee getEmployee(int id) throws SQLException {
+    public static Optional<Employee> getEmployee(int id) throws SQLException {
         if (!EmployeeDao.getAllottedIDs().contains(id))
             throw new IllegalStateException("Invalid ID");
 
