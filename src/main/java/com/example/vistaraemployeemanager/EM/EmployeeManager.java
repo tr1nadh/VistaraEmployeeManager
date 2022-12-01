@@ -12,8 +12,8 @@ public class EmployeeManager {
             throw new IllegalStateException("Employee limit reached!!!");
 
         employee.setId(generateId());
-        var response = EmployeeDao.addAsync(employee);
-        if (!response.get()) System.out.println("Employee added: " + employee.getName());
+        var response = EmployeeDao.add(employee);
+        if (!(boolean)response) System.out.println("Employee added: " + employee.getName());
         else System.out.println("Unable to add employee: " + employee.getName());
     }
 
