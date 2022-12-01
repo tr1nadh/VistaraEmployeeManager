@@ -3,7 +3,7 @@ package com.example.vistaraemployeemanager.Dao;
 import com.example.vistaraemployeemanager.EM.Employee;
 
 public class EmployeeDBQueryManager {
-    private static final String TABLE_NAME = "Employee";
+    private static final String TABLE_NAME = "employee";
     public static String getInsertQuery(Employee employee) {
         return "INSERT INTO "+ TABLE_NAME +" VALUES (" +
                 ""+ employee.getId() +", '"+ employee.getName() +"', " +
