@@ -58,7 +58,7 @@ public class EditEmployeeServlet extends HttpServlet {
                 "  </div>\n" +
                 "\n" +
                 "  <input class='btn btn-outline-primary' type='submit' value='Edit & Save'>\n" +
-                " <a class='btn btn-dark' href='view'>Cancel</a>" +
+                " <a class='btn btn-outline-dark' href='view'>View</a>" +
                 "</form>" +
                 "</div>";
         writer.println(htmlData);
