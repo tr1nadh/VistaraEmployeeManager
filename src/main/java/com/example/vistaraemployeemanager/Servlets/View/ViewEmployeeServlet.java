@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
 @WebServlet("/view")
 public class ViewEmployeeServlet extends HttpServlet {
 
@@ -72,13 +71,13 @@ public class ViewEmployeeServlet extends HttpServlet {
         for (var emp : empList) {
             var id = emp.getId();
             writer.print("<tr>\n" +
-                    "<td>"+ id +"</td>\n" +
-                    "<td>"+ emp.getName() +"</td>\n" +
-                    "<td>"+ emp.getPassword() +"</td>\n" +
-                    "<td>"+ emp.getEmail() +"</td>\n" +
-                    "<td>"+ emp.getCountry() +"</td>\n" +
-                    "<td> <a class='btn btn-success btn-sm' href='editEmployee?id="+id+"'>Edit</a> </td>\n" +
-                    "<td> <a class='btn btn-danger btn-sm' href='deleteEmployee?id="+id+"'>Delete</a> </td>\n" +
+                    "<td>" + id + "</td>\n" +
+                    "<td>" + emp.getName() + "</td>\n" +
+                    "<td>" + emp.getPassword() + "</td>\n" +
+                    "<td>" + emp.getEmail() + "</td>\n" +
+                    "<td>" + emp.getCountry() + "</td>\n" +
+                    "<td> <a class='btn btn-success btn-sm' href='editEmployee?id=" + id + "'>Edit</a> </td>\n" +
+                    "<td> <a class='btn btn-danger btn-sm' href='deleteEmployee?id=" + id + "'>Delete</a> </td>\n" +
                     "</tr>");
         }
     }
