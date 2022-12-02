@@ -2,8 +2,6 @@ package com.example.vistaraemployeemanager.Servlets.Update;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.Optional;
 
 import com.example.vistaraemployeemanager.em.Employee;
 import com.example.vistaraemployeemanager.em.EmployeeManager;
@@ -69,7 +67,7 @@ public class EditEmployeeServlet extends HttpServlet {
     private Employee getEmployeeDependsOnMethod(HttpServletRequest req) {
         if (req.getMethod().equals("GET")) {
             var id = Integer.parseInt(req.getParameter("id"));
-            var employee = getEmployee(id);
+            var employee = EmployeeManager.getEmployee(id);;
             if (employee.isPresent()) {
                 employee.get().setId(id);
                 return employee.get();
@@ -77,16 +75,5 @@ public class EditEmployeeServlet extends HttpServlet {
             return null;
         }
         else return (Employee) req.getAttribute("employee");
-    }
-
-    private Optional<Employee> getEmployee(int id) {
-        Optional<Employee> employee;
-        try {
-            employee = EmployeeManager.getEmployee(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        return employee;
     }
 }

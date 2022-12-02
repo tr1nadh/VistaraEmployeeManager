@@ -1,14 +1,14 @@
 package com.example.vistaraemployeemanager.Servlets.View;
 
+import com.example.vistaraemployeemanager.em.EmployeeManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import com.example.vistaraemployeemanager.em.EmployeeManager;
 
 
 @WebServlet("/view")
