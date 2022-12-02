@@ -7,8 +7,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.EM.Employee;
-import com.example.vistaraemployeemanager.EM.EmployeeManager;
+import com.example.vistaraemployeemanager.em.Employee;
+import com.example.vistaraemployeemanager.em.EmployeeManager;
 
 
 @WebServlet("/saveEmployee")

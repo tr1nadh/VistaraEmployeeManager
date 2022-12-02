@@ -1,12 +1,13 @@
-package com.example.vistaraemployeemanager.Dao;
+package com.example.vistaraemployeemanager.dao;
 
-import com.example.vistaraemployeemanager.EM.Employee;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import org.jdbi.v3.core.Jdbi;
+
+import com.example.vistaraemployeemanager.em.Employee;
 
 public class EmployeeDao {
 

@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import com.example.vistaraemployeemanager.EM.EmployeeManager;
+import com.example.vistaraemployeemanager.em.EmployeeManager;
 
 
 @WebServlet("/view")

@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.Dao;
+package com.example.vistaraemployeemanager.dao;
 
 import javax.sql.DataSource;
 

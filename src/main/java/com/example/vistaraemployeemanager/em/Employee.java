@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.EM;
+package com.example.vistaraemployeemanager.em;
 
 public class Employee {
     private int id;
