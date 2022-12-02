@@ -29,8 +29,4 @@ public class EmployeeDBQueryManager {
     public static String getEmployee(int id) {
         return "SELECT * FROM " + TABLE_NAME + " WHERE Id=" + id;
     }
-
-    public static String getIdQuery() {
-        return "SELECT Id from " + TABLE_NAME;
-    }
 }
