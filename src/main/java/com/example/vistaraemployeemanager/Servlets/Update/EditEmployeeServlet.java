@@ -5,8 +5,8 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Optional;
 
-import com.example.vistaraemployeemanager.EM.Employee;
-import com.example.vistaraemployeemanager.EM.EmployeeManager;
+import com.example.vistaraemployeemanager.em.Employee;
+import com.example.vistaraemployeemanager.em.EmployeeManager;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

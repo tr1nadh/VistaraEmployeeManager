@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.EM.EmployeeManager;
+import com.example.vistaraemployeemanager.em.EmployeeManager;
 
 
 @WebServlet("/deleteEmployee")

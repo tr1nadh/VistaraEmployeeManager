@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebFilter;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.EM.Employee;
+import com.example.vistaraemployeemanager.em.Employee;
 
 
 @WebFilter("/addEmployee")

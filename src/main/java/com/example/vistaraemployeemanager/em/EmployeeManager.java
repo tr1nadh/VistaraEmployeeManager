@@ -1,10 +1,11 @@
-package com.example.vistaraemployeemanager.EM;
+package com.example.vistaraemployeemanager.em;
 
 
-import com.example.vistaraemployeemanager.Dao.EmployeeDao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Optional;
+
+import com.example.vistaraemployeemanager.dao.EmployeeDao;
 
 public class EmployeeManager {
 
