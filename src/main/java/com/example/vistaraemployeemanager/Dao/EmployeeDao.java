@@ -12,7 +12,7 @@ public class EmployeeDao {
 
     private static final String url = "jdbc:derby:/mnt/DRIVE/Programming/Projects/VistaraEmployeeManager/src/main/resources/VistaraEmployeeManagerDB;";
 
-    private static Jdbi jdbi = Database.getJdbi();
+    private static Jdbi jdbi = Connector.getJdbiConnector();
 
     private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url);
@@ -94,30 +94,6 @@ public class EmployeeDao {
         return (Optional<Employee>) jdbi.withHandle(handle -> {
             var handleQuery = handle.createQuery(query);
             return handleQuery.mapTo(Employee.class).findFirst();
-        });
-    }
-
-    public static ArrayList<Integer> getAllottedIDs() throws SQLException {
-        var query = EmployeeDBQueryManager.getIdQuery();
-        try (var conn = getConnection();
-             var stmt = conn.createStatement();
-             var rs = stmt.executeQuery(query);
-             ) {
-
-            var list = new ArrayList<Integer>();
-            while (rs.next()) list.add(rs.getInt("Id"));
-
-            return list;
-        }
-    }
-
-    public static CompletableFuture<ArrayList<Integer>> getAllottedIDsAsync() {
-        return CompletableFuture.supplyAsync(() -> {
-            try {
-                return getAllottedIDs();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         });
     }
 
