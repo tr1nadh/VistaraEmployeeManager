@@ -10,13 +10,7 @@ import org.jdbi.v3.core.Jdbi;
 
 public class EmployeeDao {
 
-    private static final String url = "jdbc:derby:/mnt/DRIVE/Programming/Projects/VistaraEmployeeManager/src/main/resources/VistaraEmployeeManagerDB;";
-
     private static Jdbi jdbi = Connector.getJdbiConnector();
-
-    private static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url);
-    }
 
     public static int add(Employee employee) throws SQLException {
         var query = EmployeeDBQueryManager.getInsertQuery(employee);
