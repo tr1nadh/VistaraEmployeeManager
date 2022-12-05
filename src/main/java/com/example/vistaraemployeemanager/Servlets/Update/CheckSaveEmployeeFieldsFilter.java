@@ -15,16 +15,12 @@ public class CheckSaveEmployeeFieldsFilter implements Filter {
         var employee = getEmployee(req);
         req.setAttribute("employee", employee);
 
-        var writer = res.getWriter();
         if (isAnyFieldEmpty(employee)) {
-            writer.println("<script>alert('Fields cannot be empty or blank');</script>");
-            req.getRequestDispatcher("editEmployee").include(req, res);
-            writer.close();
+            req.getRequestDispatcher("save-error-empty-fields.jsp").forward(req, res);
             return;
         }
 
         filterChain.doFilter(req, res);
-        writer.close();
     }
 
     private Employee getEmployee(ServletRequest req) {
