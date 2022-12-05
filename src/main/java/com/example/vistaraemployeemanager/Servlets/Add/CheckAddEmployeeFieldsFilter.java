@@ -13,20 +13,15 @@ public class CheckAddEmployeeFieldsFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain) throws IOException, ServletException {
-        res.setContentType("text/html");
         var employee = getEmployee(req);
 
-        var writer = res.getWriter();
         if (isAnyFieldEmpty(employee)) {
-            writer.println("<script>alert('Fields cannot be empty or blank');</script>");
-            req.getRequestDispatcher("/add").include(req, res);
-            writer.close();
+            req.getRequestDispatcher("empty-fields-add-error.jsp").forward(req, res);
             return;
         }
 
         req.setAttribute("employee", employee);
         filterChain.doFilter(req, res);
-        writer.close();
     }
 
     private Employee getEmployee(ServletRequest req) {

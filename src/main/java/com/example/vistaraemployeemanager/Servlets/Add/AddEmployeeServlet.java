@@ -20,10 +20,8 @@ public class AddEmployeeServlet extends HttpServlet {
 
         addEmployee(employee);
 
-        var writer = res.getWriter();
-        writer.println("<script>alert('Successfully added employee: "+ employee.getName() +"');</script>");
-        req.getRequestDispatcher("/add").include(req, res);
-        writer.close();
+        req.setAttribute("empName", employee.getName());
+        req.getRequestDispatcher("add-employee-success.jsp").forward(req, res);
     }
 
     private void addEmployee(Employee employee) {
