@@ -28,11 +28,11 @@
     <label>Name</label>
     </div>
     <div class='form-floating mb-3 mt-3'>
-    <input class='form-control' type='password' placeholder='Enter password' name='password' value='<%=employee.getPassword()%>>' />
+    <input class='form-control' type='password' placeholder='Enter password' name='password' value='<%=employee.getPassword()%>' />
     <label>Password</label>
     </div>
     <div class='form-floating mb-3 mt-3'>
-    <input class='form-control' type='email' placeholder='Enter email' name='email' value='<%=employee.getEmail()%>>' />
+    <input class='form-control' type='email' placeholder='Enter email' name='email' value='<%=employee.getEmail()%>' />
     <label>Email</label>
     </div>
     <div class='mb-3 mt-3'>
