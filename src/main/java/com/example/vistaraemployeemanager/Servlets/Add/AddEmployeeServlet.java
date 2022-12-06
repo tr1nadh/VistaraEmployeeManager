@@ -21,7 +21,7 @@ public class AddEmployeeServlet extends HttpServlet {
         addEmployee(employee);
 
         req.setAttribute("empName", employee.getName());
-        req.getRequestDispatcher("add-employee-success.jsp").forward(req, res);
+        req.getRequestDispatcher("sign/add-employee-success.jsp").forward(req, res);
     }
 
     private void addEmployee(Employee employee) {
