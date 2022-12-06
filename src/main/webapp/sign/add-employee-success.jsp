@@ -8,8 +8,7 @@
 <title>Employee added</title>
 </head>
 <body>
-<% String empName = (String)request.getAttribute("empName"); %>>
+<% String empName = (String)request.getAttribute("empName"); %>
 <script>alert('Successfully added employee: ${empName}');</script>
-<jsp:include page="add" />
 </body>
 </html>

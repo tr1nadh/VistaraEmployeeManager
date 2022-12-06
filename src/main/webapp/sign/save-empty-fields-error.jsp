@@ -8,6 +8,5 @@
 </head>
 <body>
 <script>alert('Fields cannot be empty or blank');</script>
-<jsp:include page="editEmployee" />
 </body>
 </html>

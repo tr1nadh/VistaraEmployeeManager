@@ -16,7 +16,8 @@ public class CheckSaveEmployeeFieldsFilter implements Filter {
         req.setAttribute("employee", employee);
 
         if (isAnyFieldEmpty(employee)) {
-            req.getRequestDispatcher("sign/save-empty-fields.jsp").forward(req, res);
+            req.getRequestDispatcher("sign/save-empty-fields.jsp").include(req, res);
+            req.getRequestDispatcher("editEmployee").include(req, res);
             return;
         }
 
