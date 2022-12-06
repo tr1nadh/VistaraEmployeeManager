@@ -2,10 +2,7 @@ package com.example.vistaraemployeemanager.em;
 
 public class Employee {
     private int id;
-    private String name;
-    private String password;
-    private String email;
-    private String country;
+    private String name, password, email, country;
 
     public int getId() {
         return id;
@@ -45,6 +42,26 @@ public class Employee {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public boolean isNameEmptyOrNull() {
+        return isStrNullOrEmpty(name);
+    }
+
+    public boolean isPasswordEmptyOrNull() {
+        return isStrNullOrEmpty(password);
+    }
+
+    public boolean isEmailEmptyOrNull() {
+        return isStrNullOrEmpty(email);
+    }
+
+    public boolean isCountryEmptyOrNull() {
+        return isStrNullOrEmpty(country);
+    }
+
+    private boolean isStrNullOrEmpty(String str) {
+        return str == null || str.trim().isEmpty();
     }
 
     @Override
