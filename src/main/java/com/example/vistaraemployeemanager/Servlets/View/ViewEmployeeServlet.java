@@ -12,11 +12,6 @@ import java.io.IOException;
 @WebServlet("/view")
 public class ViewEmployeeServlet extends HttpServlet {
 
-    /*
-     * Get the list of employees
-     * Invoke view-employee.jsp
-     */
-
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         try {

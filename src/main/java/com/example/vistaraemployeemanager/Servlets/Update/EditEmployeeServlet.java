@@ -1,11 +1,8 @@
 package com.example.vistaraemployeemanager.Servlets.Update;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import com.example.vistaraemployeemanager.em.Employee;
 import com.example.vistaraemployeemanager.em.EmployeeManager;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
