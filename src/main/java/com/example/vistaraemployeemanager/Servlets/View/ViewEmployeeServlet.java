@@ -17,15 +17,11 @@ public class ViewEmployeeServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         try {
-            var empList = getEmployees();
+            var empList = EmployeeManager.getAllEmployees();
             req.setAttribute("empList", empList);
             req.getRequestDispatcher("view-employee.jsp").forward(req, res);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private ArrayList<Employee> getEmployees() throws Exception {
-        return (EmployeeManager.hasChange == true) ? EmployeeManager.getAllEmployees() : EmployeeManager.empList;
     }
 }

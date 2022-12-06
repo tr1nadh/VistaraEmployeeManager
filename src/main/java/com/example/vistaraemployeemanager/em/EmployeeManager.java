@@ -37,6 +37,8 @@ public class EmployeeManager {
     }
 
     public static ArrayList<Employee> getAllEmployees() throws Exception {
+        if (!hasChange) return empList;
+        
         hasChange = false;
         var employees = EmployeeDao.getEmployeesAsync();
         System.out.println("Successfully retrieved employees");
