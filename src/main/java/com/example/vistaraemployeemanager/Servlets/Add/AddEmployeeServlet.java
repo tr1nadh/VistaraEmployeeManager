@@ -17,21 +17,12 @@ public class AddEmployeeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var employee = (Employee) req.getAttribute("employee");
-
-       addEmployee(employee);
+        
+        EmployeeManager.add(employee);
 
         req.setAttribute("empName", employee.getName());
         req.getRequestDispatcher("sign/add-employee-success.jsp").include(req, res);
         req.getRequestDispatcher("add").include(req, res);
     }
-
-    private void addEmployee(Employee employee) {
-        try {
-            EmployeeManager.add(employee);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 
 }
