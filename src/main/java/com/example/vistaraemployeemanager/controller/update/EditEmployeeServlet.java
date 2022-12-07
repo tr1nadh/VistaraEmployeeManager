@@ -33,6 +33,7 @@ public class EditEmployeeServlet extends HttpServlet {
             }
             return null;
         }
-        else return (Employee) req.getAttribute("employee");
+        
+        return (Employee) req.getAttribute("employee");
     }
 }
