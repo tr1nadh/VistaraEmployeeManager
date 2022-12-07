@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.controller.Delete;
+package com.example.vistaraemployeemanager.controller.delete;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

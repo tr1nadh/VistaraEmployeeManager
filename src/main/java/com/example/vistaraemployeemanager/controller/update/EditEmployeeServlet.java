@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.controller.Update;
+package com.example.vistaraemployeemanager.controller.update;
 
 import java.io.IOException;
 

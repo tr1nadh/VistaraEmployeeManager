@@ -1,32 +1,32 @@
-package com.example.vistaraemployeemanager.controller.Update;
+package com.example.vistaraemployeemanager.controller.add;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
+
 import java.io.IOException;
 
 import com.example.vistaraemployeemanager.model.Employee;
 
 
-@WebFilter("/saveEmployee")
-public class CheckSaveEmployeeFieldsFilter implements Filter {
+@WebFilter("/addEmployee")
+public class CheckAddEmployeeFieldsFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain) throws IOException, ServletException {
         var employee = getEmployee(req);
-        req.setAttribute("employee", employee);
 
         if (isAnyFieldEmpty(employee)) {
-            req.getRequestDispatcher("sign/save-empty-fields.jsp").include(req, res);
-            req.getRequestDispatcher("editEmployee").include(req, res);
+            req.getRequestDispatcher("sign/add-empty-fields-error.jsp").include(req, res);
+            req.getRequestDispatcher("add").include(req, res);
             return;
         }
 
+        req.setAttribute("employee", employee);
         filterChain.doFilter(req, res);
     }
 
     private Employee getEmployee(ServletRequest req) {
         var employee = new Employee();
-        employee.setId(Integer.parseInt(req.getParameter("id")));
         employee.setName(req.getParameter("name"));
         employee.setPassword(req.getParameter("password"));
         employee.setEmail(req.getParameter("email"));
