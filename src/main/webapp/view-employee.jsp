@@ -43,7 +43,7 @@
     <td>${emp.getEmail()}</td>
     <td>${emp.getCountry()}</td>
     <td><a class='btn btn-success btn-sm' href='editEmployee?id=${id}'>Edit</a> </td>
-    <td><a class='btn btn-danger btn-sm' href='deleteEmployee?id=${id}'>Delete</a></td>
+    <td><a class='btn btn-danger btn-sm' onClick='confirmDelete(${id})'>Delete</a></td>
     </tr>
     </c:forEach>
     </tbody></table>
@@ -51,6 +51,13 @@
                 <button class='btn btn-outline-primary' type='submit'>Add new employee</button>
                 </form>
     </div>
-
+<script>
+function confirmDelete(id) {
+    let text = "Are you sure, you want to delete?";
+    if (confirm(text) == true) {
+        window.location.assign("deleteEmployee?id=" + id);
+    }
+}
+</script>
 </body>
 </html>
