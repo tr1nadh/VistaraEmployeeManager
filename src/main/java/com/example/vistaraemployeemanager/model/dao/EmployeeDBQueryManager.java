@@ -1,6 +1,6 @@
-package com.example.vistaraemployeemanager.dao;
+package com.example.vistaraemployeemanager.model.dao;
 
-import com.example.vistaraemployeemanager.em.Employee;
+import com.example.vistaraemployeemanager.model.em.Employee;
 
 
 public class EmployeeDBQueryManager {
