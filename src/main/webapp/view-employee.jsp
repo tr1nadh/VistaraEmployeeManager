@@ -1,4 +1,4 @@
-<%@page import="com.example.vistaraemployeemanager.em.Employee"%>
+<%@page import="com.example.vistaraemployeemanager.model.Employee"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
