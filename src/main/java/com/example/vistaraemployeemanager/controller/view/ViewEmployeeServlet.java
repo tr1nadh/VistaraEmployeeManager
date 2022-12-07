@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.controller.View;
+package com.example.vistaraemployeemanager.controller.view;
 
 
 import jakarta.servlet.ServletException;

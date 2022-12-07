@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.controller.Add;
+package com.example.vistaraemployeemanager.controller.add;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

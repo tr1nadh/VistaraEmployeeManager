@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.controller.Update;
+package com.example.vistaraemployeemanager.controller.update;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
