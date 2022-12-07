@@ -13,8 +13,9 @@ import java.io.IOException;
 @WebServlet("/view")
 public class ViewEmployeeServlet extends HttpServlet {
 
+    // TODO
     /*
-     * After reading data from database, after html page is created,
+     * TODO: After reading data from database, after html page is created,
      * Save it somewhere and when there is change in db, show the saved page then
      * again quering the db.
      */
