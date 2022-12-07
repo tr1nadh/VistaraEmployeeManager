@@ -44,26 +44,6 @@ public class Employee {
         this.country = country;
     }
 
-    public boolean isNameEmptyOrNull() {
-        return isStrNullOrEmpty(name);
-    }
-
-    public boolean isPasswordEmptyOrNull() {
-        return isStrNullOrEmpty(password);
-    }
-
-    public boolean isEmailEmptyOrNull() {
-        return isStrNullOrEmpty(email);
-    }
-
-    public boolean isCountryEmptyOrNull() {
-        return isStrNullOrEmpty(country);
-    }
-
-    private boolean isStrNullOrEmpty(String str) {
-        return str == null || str.trim().isEmpty();
-    }
-
     @Override
     public String toString() {
         return "Id: " + id + "> Name: " + name;
