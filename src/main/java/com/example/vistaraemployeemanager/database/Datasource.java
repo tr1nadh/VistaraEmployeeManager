@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.model.database;
+package com.example.vistaraemployeemanager.database;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

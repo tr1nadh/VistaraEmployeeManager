@@ -1,6 +1,6 @@
 package com.example.vistaraemployeemanager;
 
-import com.example.vistaraemployeemanager.model.em.EmployeeManager;
+import com.example.vistaraemployeemanager.manager.EmployeeManager;
 
 public class Main {
     public static void main(String[] args) throws Exception {

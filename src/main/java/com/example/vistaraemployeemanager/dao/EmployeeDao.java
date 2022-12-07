@@ -1,10 +1,10 @@
-package com.example.vistaraemployeemanager.model.dao;
+package com.example.vistaraemployeemanager.dao;
 
 import org.jdbi.v3.core.Jdbi;
 
-import com.example.vistaraemployeemanager.model.database.Connector;
-import com.example.vistaraemployeemanager.model.database.EmployeeDBQueryManager;
-import com.example.vistaraemployeemanager.model.em.Employee;
+import com.example.vistaraemployeemanager.model.Employee;
+import com.example.vistaraemployeemanager.database.Connector;
+import com.example.vistaraemployeemanager.database.EmployeeDBQueryManager;
 
 import java.util.ArrayList;
 import java.util.Optional;

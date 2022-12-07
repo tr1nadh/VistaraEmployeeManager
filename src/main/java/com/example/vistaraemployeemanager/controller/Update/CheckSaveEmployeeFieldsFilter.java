@@ -4,7 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.model.em.Employee;
+import com.example.vistaraemployeemanager.model.Employee;
 
 
 @WebFilter("/saveEmployee")
