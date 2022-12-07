@@ -36,7 +36,11 @@ public class CheckAddEmployeeFieldsFilter implements Filter {
     }
 
     private boolean isAnyFieldEmpty(Employee employee) {
-        return employee.isNameEmptyOrNull() || employee.isPasswordEmptyOrNull() ||
-                employee.isEmailEmptyOrNull() || employee.isCountryEmptyOrNull();
+        return isStrNullOrEmpty(employee.getName()) || isStrNullOrEmpty(employee.getPassword()) ||
+        isStrNullOrEmpty(employee.getEmail()) || isStrNullOrEmpty(employee.getCountry());
+    }
+
+    private boolean isStrNullOrEmpty(String str) {
+        return str == null || str.trim().isEmpty();
     }
 }
