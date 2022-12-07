@@ -36,11 +36,7 @@ public class CheckSaveEmployeeFieldsFilter implements Filter {
     }
 
     private boolean isAnyFieldEmpty(Employee employee) {
-        return isFiledNullOrEmpty(employee.getName()) || isFiledNullOrEmpty(employee.getPassword()) ||
-                isFiledNullOrEmpty(employee.getEmail()) || isFiledNullOrEmpty(employee.getCountry());
-    }
-
-    private boolean isFiledNullOrEmpty(String str) {
-        return str == null || str.trim().isEmpty();
+        return employee.isNameEmptyOrNull() || employee.isPasswordEmptyOrNull() ||
+                employee.isEmailEmptyOrNull() || employee.isCountryEmptyOrNull();
     }
 }
