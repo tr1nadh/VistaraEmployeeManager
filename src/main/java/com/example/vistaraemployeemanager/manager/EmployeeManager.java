@@ -42,9 +42,9 @@ public class EmployeeManager {
         if (!hasChange) return empList;
         
         hasChange = false;
-        var employees = EmployeeDao.getEmployeesAsync();
+        empList = EmployeeDao.getEmployeesAsync().get();
         System.out.println("Successfully retrieved employees");
-        empList = employees.get();
+        
         return empList;
     }
 
