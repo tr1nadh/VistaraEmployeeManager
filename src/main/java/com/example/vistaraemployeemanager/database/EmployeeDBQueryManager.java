@@ -4,7 +4,13 @@ import com.example.vistaraemployeemanager.model.Employee;
 
 
 public class EmployeeDBQueryManager {
+
+    /*
+     * TODO: Change the way query is constructed
+     */
+
     private static final String TABLE_NAME = "employee";
+
     public static String getInsertQuery(Employee employee) {
         return "INSERT INTO "+ TABLE_NAME +" VALUES (" +
                 ""+ employee.getId() +", '"+ employee.getName() +"', " +
