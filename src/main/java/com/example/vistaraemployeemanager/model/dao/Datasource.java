@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.dao;
+package com.example.vistaraemployeemanager.model.dao;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

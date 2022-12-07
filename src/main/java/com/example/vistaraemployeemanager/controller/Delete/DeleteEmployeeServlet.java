@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.Servlets.Delete;
+package com.example.vistaraemployeemanager.controller.Delete;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.em.EmployeeManager;
+import com.example.vistaraemployeemanager.model.em.EmployeeManager;
 
 
 @WebServlet("/deleteEmployee")

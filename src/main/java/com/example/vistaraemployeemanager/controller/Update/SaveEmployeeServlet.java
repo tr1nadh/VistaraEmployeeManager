@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.Servlets.Update;
+package com.example.vistaraemployeemanager.controller.Update;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,8 +7,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.em.Employee;
-import com.example.vistaraemployeemanager.em.EmployeeManager;
+import com.example.vistaraemployeemanager.model.em.Employee;
+import com.example.vistaraemployeemanager.model.em.EmployeeManager;
 
 
 @WebServlet("/saveEmployee")
