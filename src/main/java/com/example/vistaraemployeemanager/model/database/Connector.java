@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.model.dao;
+package com.example.vistaraemployeemanager.model.database;
 
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.mapper.reflect.FieldMapper;
