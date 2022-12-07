@@ -13,8 +13,7 @@ import com.example.vistaraemployeemanager.model.em.EmployeeManager;
 
 @WebServlet("/view")
 public class ViewEmployeeServlet extends HttpServlet {
-
-    // TODO
+    
     /*
      * TODO: After reading data from database, after html page is created,
      * Save it somewhere and when there is change in db, show the saved page then
