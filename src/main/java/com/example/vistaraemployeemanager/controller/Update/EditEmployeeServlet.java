@@ -2,8 +2,8 @@ package com.example.vistaraemployeemanager.controller.Update;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.model.em.Employee;
-import com.example.vistaraemployeemanager.model.em.EmployeeManager;
+import com.example.vistaraemployeemanager.model.Employee;
+import com.example.vistaraemployeemanager.manager.EmployeeManager;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
