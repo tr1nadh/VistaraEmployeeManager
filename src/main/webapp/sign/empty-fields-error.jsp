@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Save error</title>
+<title>Empty fields error</title>
 </head>
 <body>
 <script>alert('Fields cannot be empty or blank');</script>
