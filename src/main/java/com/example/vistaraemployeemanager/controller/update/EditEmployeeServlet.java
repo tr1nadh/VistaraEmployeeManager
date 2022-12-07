@@ -17,23 +17,8 @@ public class EditEmployeeServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        var employee = getEmployeeDependsOnMethod(req);
-        if (employee == null) throw new IllegalStateException("No user with this ID");
-        req.setAttribute("emp", employee);
+        var empID = Integer.parseInt(req.getParameter("id"));
+        req.setAttribute("emp", EmployeeManager.getEmployee(empID));
         req.getRequestDispatcher("edit-employee.jsp").forward(req, res);
-    }
-
-    private Employee getEmployeeDependsOnMethod(HttpServletRequest req) {
-        if (req.getMethod().equals("GET")) {
-            var id = Integer.parseInt(req.getParameter("id"));
-            var employee = EmployeeManager.getEmployee(id);;
-            if (employee.isPresent()) {
-                employee.get().setId(id);
-                return employee.get();
-            }
-            return null;
-        }
-        
-        return (Employee) req.getAttribute("employee");
     }
 }
