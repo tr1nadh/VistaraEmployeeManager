@@ -15,8 +15,8 @@ public class DeleteEmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        var id = Integer.parseInt(req.getParameter("id"));
-        removeEmployee(id);
+        var empID = Integer.parseInt(req.getParameter("id"));
+        removeEmployee(empID);
         res.sendRedirect("view");
     }
 
