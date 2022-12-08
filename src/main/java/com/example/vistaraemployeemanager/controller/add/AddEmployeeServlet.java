@@ -20,6 +20,7 @@ public class AddEmployeeServlet extends HttpServlet {
         
         EmployeeManager.add(employee);
 
+        // TODO: Two pages should'nt be included, find alternative way for showing alert.
         req.setAttribute("empName", employee.getName());
         req.getRequestDispatcher("sign/add-employee-success.jsp").include(req, res);
         req.getRequestDispatcher("add").include(req, res);
