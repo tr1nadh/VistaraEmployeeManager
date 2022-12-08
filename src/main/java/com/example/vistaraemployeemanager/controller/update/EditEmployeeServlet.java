@@ -24,7 +24,6 @@ public class EditEmployeeServlet extends HttpServlet {
     private Employee getEmployee(HttpServletRequest req) {
         var empID = Integer.parseInt(req.getParameter("id"));
         var employee = EmployeeManager.getEmployee(empID);
-        // TODO: Create a error jsp for this
         if (employee.isEmpty()) throw new IllegalStateException("No such employee with ID: " + empID);
         
         return employee.get();
