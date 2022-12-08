@@ -14,13 +14,12 @@ public class CheckSaveEmployeeFieldsFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain) throws IOException, ServletException {
         var employee = getEmployee(req);
         req.setAttribute("employee", employee);
-
+        
         if (isAnyFieldEmpty(employee)) {
-            req.getRequestDispatcher("sign/empty-fields-error.jsp").include(req, res);
-            req.getRequestDispatcher("editEmployee").include(req, res);
+            req.getRequestDispatcher("editEmployee").forward(req, res);
             return;
         }
-
+        
         filterChain.doFilter(req, res);
     }
 

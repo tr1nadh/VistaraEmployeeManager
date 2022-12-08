@@ -16,8 +16,7 @@ public class CheckAddEmployeeFieldsFilter implements Filter {
         var employee = getEmployee(req);
 
         if (isAnyFieldEmpty(employee)) {
-            req.getRequestDispatcher("sign/empty-fields-error.jsp").include(req, res);
-            req.getRequestDispatcher("add").include(req, res);
+            req.getRequestDispatcher("add").forward(req, res);
             return;
         }
 
