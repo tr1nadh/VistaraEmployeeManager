@@ -15,9 +15,9 @@ import com.example.vistaraemployeemanager.manager.EmployeeManager;
 public class ViewEmployeeServlet extends HttpServlet {
     
     /*
-     * TODO: After reading data from database, after html page is created,
-     * Save it somewhere and when there is change in db, show the saved page then
-     * again quering the db.
+     * TODO: Download the built view page and then save it somewhere.
+     * When there is not change in db, show the page without quering the db
+     * again and building view page again.
      */
 
     @Override
