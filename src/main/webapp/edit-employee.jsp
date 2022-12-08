@@ -14,6 +14,7 @@
   />
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="js/script.js"></script>
     <title>Edit employee</title>
 </head>
 <body>
@@ -21,18 +22,18 @@
 <c:set var="emp" value="${employee}" />
     <div class='container border mt-3'>
     <h2 class='text-center mb-4'>Edit employee</h2>
-    <form action='saveEmployee' method='post'>
+    <form id="form" action='saveEmployee' method='post'>
     <label class='visually-hidden-focusable'>Id <input type='text' name='id' value='<%=employee.getId()%>'></label>
     <div class='form-floating mb-3 mt-3'>
-    <input class='form-control' type='text' placeholder='Enter name' name='name' value='<%=employee.getName()%>'/>
+    <input id="name-field" class='form-control' type='text' placeholder='Enter name' name='name' value='<%=employee.getName()%>'/>
     <label>Name</label>
     </div>
     <div class='form-floating mb-3 mt-3'>
-    <input class='form-control' type='password' placeholder='Enter password' name='password' value='<%=employee.getPassword()%>' />
+    <input id="password-field" class='form-control' type='password' placeholder='Enter password' name='password' value='<%=employee.getPassword()%>' />
     <label>Password</label>
     </div>
     <div class='form-floating mb-3 mt-3'>
-    <input class='form-control' type='email' placeholder='Enter email' name='email' value='<%=employee.getEmail()%>' />
+    <input id="email-field" class='form-control' type='email' placeholder='Enter email' name='email' value='<%=employee.getEmail()%>' />
     <label>Email</label>
     </div>
     <div class='mb-3 mt-3'>
@@ -45,7 +46,7 @@
                 </select>
     </div>
                 
-                <input class='btn btn-outline-success' type='submit' value='Save' />
+                <input class='btn btn-outline-success' onclick="submitForm()" type="button" value='Save' />
                 <a class='btn btn-danger' href='view'>Cancel</a>
     
     </form>

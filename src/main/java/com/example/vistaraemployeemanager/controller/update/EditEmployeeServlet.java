@@ -2,8 +2,8 @@ package com.example.vistaraemployeemanager.controller.update;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.manager.EmployeeManager;
+import com.example.vistaraemployeemanager.model.Employee;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,8 +17,16 @@ public class EditEmployeeServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        var empID = Integer.parseInt(req.getParameter("id"));
-        req.setAttribute("emp", EmployeeManager.getEmployee(empID));
+        req.setAttribute("emp", getEmployee(req));
         req.getRequestDispatcher("edit-employee.jsp").forward(req, res);
+    }
+
+    private Employee getEmployee(HttpServletRequest req) {
+        var empID = Integer.parseInt(req.getParameter("id"));
+        var employee = EmployeeManager.getEmployee(empID);
+        // TODO: Create a error jsp for this
+        if (employee.isEmpty()) throw new IllegalStateException("No such employee with ID: " + empID);
+        
+        return employee.get();
     }
 }
