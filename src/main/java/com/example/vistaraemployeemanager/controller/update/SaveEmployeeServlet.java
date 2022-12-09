@@ -4,9 +4,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
-
 import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.controller.Controller;
 
@@ -27,7 +25,7 @@ public class SaveEmployeeServlet extends Controller {
 
     private void updateEmployee(Employee employee) {
         try {
-            manager.update(employee.getId(), employee);
+            getEmployeeManager().update(employee.getId(), employee);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

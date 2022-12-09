@@ -1,10 +1,8 @@
 package com.example.vistaraemployeemanager.controller.update;
 
 import java.io.IOException;
-
 import com.example.vistaraemployeemanager.controller.Controller;
 import com.example.vistaraemployeemanager.model.Employee;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,7 +23,7 @@ public class EditEmployeeServlet extends Controller {
 
     private Employee getEmployee(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         var empID = Integer.parseInt(req.getParameter("id"));
-        var employee = manager.getEmployee(empID);
+        var employee = getEmployeeManager().getEmployee(empID);
         if (employee.isEmpty()) {
             req.setAttribute("alrtMsg", "No such employee with ID: " + empID);
             req.setAttribute("forwardAddr", "view");

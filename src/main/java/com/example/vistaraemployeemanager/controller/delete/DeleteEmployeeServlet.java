@@ -3,9 +3,7 @@ package com.example.vistaraemployeemanager.controller.delete;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
-
 import com.example.vistaraemployeemanager.controller.Controller;
 
 
@@ -21,7 +19,7 @@ public class DeleteEmployeeServlet extends Controller {
 
     private void removeEmployee(int id) {
         try {
-            manager.remove(id);
+            getEmployeeManager().remove(id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
