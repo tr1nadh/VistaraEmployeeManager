@@ -16,7 +16,7 @@ public class AddEmployeeServlet extends Controller {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var employee = getEmployee(req);
         
-        manager.add(employee);
+        getEmployeeManager().add(employee);
 
         req.setAttribute("alrtMsg", "Successfully added employee: " + employee.getName());
         req.setAttribute("forwardAddr", "add");
