@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ShowAddEmployeeFieldsServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+    protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         req.getRequestDispatcher("add-employee.html").include(req, res);
     }
 }
