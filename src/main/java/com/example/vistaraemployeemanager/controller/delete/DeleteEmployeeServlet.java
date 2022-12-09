@@ -1,17 +1,16 @@
 package com.example.vistaraemployeemanager.controller.delete;
 
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.manager.EmployeeManager;
+import com.example.vistaraemployeemanager.controller.IController;
 
 
 @WebServlet("/deleteEmployee")
-public class DeleteEmployeeServlet extends HttpServlet {
+public class DeleteEmployeeServlet extends IController {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -22,7 +21,7 @@ public class DeleteEmployeeServlet extends HttpServlet {
 
     private void removeEmployee(int id) {
         try {
-            EmployeeManager.remove(id);
+            manager.remove(id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

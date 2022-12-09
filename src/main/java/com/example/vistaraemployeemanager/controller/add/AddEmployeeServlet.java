@@ -2,22 +2,21 @@ package com.example.vistaraemployeemanager.controller.add;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.example.vistaraemployeemanager.model.Employee;
-import com.example.vistaraemployeemanager.manager.EmployeeManager;
+import com.example.vistaraemployeemanager.controller.IController;
 
 
 @WebServlet("/addEmployee")
-public class AddEmployeeServlet extends HttpServlet {
+public class AddEmployeeServlet extends IController {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var employee = getEmployee(req);
         
-       EmployeeManager.add(employee);
+        manager.add(employee);
 
         req.setAttribute("alrtMsg", "Successfully added employee: " + employee.getName());
         req.setAttribute("forwardAddr", "add");

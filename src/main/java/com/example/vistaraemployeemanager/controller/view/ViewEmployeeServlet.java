@@ -3,16 +3,14 @@ package com.example.vistaraemployeemanager.controller.view;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import com.example.vistaraemployeemanager.manager.EmployeeManager;
+import com.example.vistaraemployeemanager.controller.IController;
 
 
 @WebServlet("/view")
-public class ViewEmployeeServlet extends HttpServlet {
+public class ViewEmployeeServlet extends IController {
     
     /*
      * TODO: Download the built view page and then save it somewhere.
@@ -23,7 +21,7 @@ public class ViewEmployeeServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         try {
-            var empList = EmployeeManager.getAllEmployees();
+            var empList = manager.getAllEmployees();
             req.setAttribute("empList", empList);
             req.getRequestDispatcher("view-employee.jsp").forward(req, res);
         } catch (Exception e) {
