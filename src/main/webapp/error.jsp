@@ -18,7 +18,7 @@
 <div class="alert alert-danger" role="alert">
  Error: <%= request.getAttribute("message") %> 
  </div>
-<button class="btn btn-dark" onClick="history.back()">Go back</button>
+<button class="btn btn-dark" onClick="view">Go home</button>
 </div>
 </body>
 </html>
