@@ -5,5 +5,7 @@ import com.example.vistaraemployeemanager.manager.EmployeeManager;
 import jakarta.servlet.http.HttpServlet;
 
 public abstract class Controller extends HttpServlet {
-    protected EmployeeManager manager = (EmployeeManager) getServletContext().getAttribute("employeeManager");
+    protected EmployeeManager getEmployeeManager() {
+        return (EmployeeManager) getServletContext().getAttribute("employeeManager");
+    }
 }
