@@ -1,5 +1,6 @@
 package com.example.vistaraemployeemanager.controller.update;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,10 +16,13 @@ import com.example.vistaraemployeemanager.manager.EmployeeManager;
 public class SaveEmployeeServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var employee = getEmployee(req);
         updateEmployee(employee);
-        res.sendRedirect("view");
+
+        req.setAttribute("alrtMsg", "successfully saved changes to the employee of ID: " + employee.getId());
+        req.setAttribute("forwardAddr", "view");
+        req.getRequestDispatcher("alert-n-forward.jsp").forward(req, res);
     }
 
     private void updateEmployee(Employee employee) {

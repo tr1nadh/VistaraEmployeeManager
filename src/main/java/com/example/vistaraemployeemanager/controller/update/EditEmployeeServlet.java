@@ -28,8 +28,9 @@ public class EditEmployeeServlet extends HttpServlet {
         var empID = Integer.parseInt(req.getParameter("id"));
         var employee = EmployeeManager.getEmployee(empID);
         if (employee.isEmpty()) {
-            req.setAttribute("message", "No such employee with ID: " + empID);
-            req.getRequestDispatcher("error.jsp").forward(req, res);
+            req.setAttribute("alrtMsg", "No such employee with ID: " + empID);
+            req.setAttribute("forwardAddr", "view");
+            req.getRequestDispatcher("alert-n-forward.jsp").forward(req, res);
             return null;
         }
         
