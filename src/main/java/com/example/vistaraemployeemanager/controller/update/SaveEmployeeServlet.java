@@ -18,6 +18,7 @@ public class SaveEmployeeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var employee = getEmployee(req);
+        
         updateEmployee(employee);
 
         req.setAttribute("alrtMsg", "Successfully saved changes to the employee of ID: " + employee.getId());
