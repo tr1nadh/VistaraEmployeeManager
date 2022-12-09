@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.manager.EmployeeManager;
 
@@ -20,8 +19,9 @@ public class AddEmployeeServlet extends HttpServlet {
         
        EmployeeManager.add(employee);
 
-        // TODO: Find a way to show success alert
-        res.sendRedirect("add");
+        req.setAttribute("alrtMsg", "Successfully added employee: " + employee.getName());
+        req.setAttribute("forwardAddr", "add");
+        req.getRequestDispatcher("alert-n-forward.jsp").forward(req, res);
     }
 
     private Employee getEmployee(HttpServletRequest req) {
