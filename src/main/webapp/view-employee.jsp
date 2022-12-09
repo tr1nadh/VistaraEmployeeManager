@@ -58,6 +58,7 @@ function confirmDelete(id) {
         window.location.assign("deleteEmployee?id=" + id);
     }
 }
+
 </script>
 </body>
 </html>
