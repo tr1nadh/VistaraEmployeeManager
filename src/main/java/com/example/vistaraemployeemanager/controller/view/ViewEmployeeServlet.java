@@ -21,7 +21,7 @@ public class ViewEmployeeServlet extends Controller {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         try {
-            var empList = manager.getAllEmployees();
+            var empList = getEmployeeManager().getAllEmployees();
             req.setAttribute("empList", empList);
             req.getRequestDispatcher("view-employee.jsp").forward(req, res);
         } catch (Exception e) {
