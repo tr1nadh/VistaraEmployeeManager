@@ -6,11 +6,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import com.example.vistaraemployeemanager.controller.IController;
+import com.example.vistaraemployeemanager.controller.Controller;
 
 
 @WebServlet("/deleteEmployee")
-public class DeleteEmployeeServlet extends IController {
+public class DeleteEmployeeServlet extends Controller {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {

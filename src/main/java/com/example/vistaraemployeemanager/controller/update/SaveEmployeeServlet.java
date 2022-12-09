@@ -8,11 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import com.example.vistaraemployeemanager.model.Employee;
-import com.example.vistaraemployeemanager.controller.IController;
+import com.example.vistaraemployeemanager.controller.Controller;
 
 
 @WebServlet("/saveEmployee")
-public class SaveEmployeeServlet extends IController {
+public class SaveEmployeeServlet extends Controller {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
