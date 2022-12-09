@@ -8,8 +8,8 @@ import com.example.vistaraemployeemanager.dao.EmployeeDao;
 
 public class EmployeeManager {
 
-    public static boolean hasChange = true;
-    public static ArrayList<Employee> empList;
+    private boolean hasChange = true;
+    private ArrayList<Employee> empList;
 
 
     private final EmployeeDao employeeDao;
