@@ -2,18 +2,17 @@ package com.example.vistaraemployeemanager.controller.update;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
 import com.example.vistaraemployeemanager.model.Employee;
-import com.example.vistaraemployeemanager.manager.EmployeeManager;
+import com.example.vistaraemployeemanager.controller.IController;
 
 
 @WebServlet("/saveEmployee")
-public class SaveEmployeeServlet extends HttpServlet {
+public class SaveEmployeeServlet extends IController {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
@@ -28,7 +27,7 @@ public class SaveEmployeeServlet extends HttpServlet {
 
     private void updateEmployee(Employee employee) {
         try {
-            EmployeeManager.update(employee.getId(), employee);
+            manager.update(employee.getId(), employee);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
