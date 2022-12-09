@@ -6,11 +6,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import com.example.vistaraemployeemanager.controller.Controller;
+import com.example.vistaraemployeemanager.controller.ControllerHelper;
 
 
 @WebServlet("/view")
-public class ViewEmployeeServlet extends Controller {
+public class ViewEmployeeServlet extends ControllerHelper {
     
     /*
      * TODO: Download the built view page and then save it somewhere.
