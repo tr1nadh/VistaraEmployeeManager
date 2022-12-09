@@ -1,7 +1,7 @@
 package com.example.vistaraemployeemanager.controller.update;
 
 import java.io.IOException;
-import com.example.vistaraemployeemanager.controller.Controller;
+import com.example.vistaraemployeemanager.controller.ControllerHelper;
 import com.example.vistaraemployeemanager.model.Employee;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/editEmployee")
-public class EditEmployeeServlet extends Controller {
+public class EditEmployeeServlet extends ControllerHelper {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
