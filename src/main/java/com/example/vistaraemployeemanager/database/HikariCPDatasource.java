@@ -5,11 +5,11 @@ import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
 
-public class Datasource {
+public class HikariCPDatasource implements IDatasource {
 
     //TODO: This Configuration must take from a text file
     
-    public static DataSource getDatasource() {
+    public DataSource getDatasource() {
         var config = new HikariConfig();
         config.setJdbcUrl("jdbc:mysql://localhost:3306/employeesdb");
         config.setUsername("root");
