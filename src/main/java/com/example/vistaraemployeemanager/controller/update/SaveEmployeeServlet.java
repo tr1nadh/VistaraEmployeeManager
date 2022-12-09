@@ -20,7 +20,7 @@ public class SaveEmployeeServlet extends HttpServlet {
         var employee = getEmployee(req);
         updateEmployee(employee);
 
-        req.setAttribute("alrtMsg", "successfully saved changes to the employee of ID: " + employee.getId());
+        req.setAttribute("alrtMsg", "Successfully saved changes to the employee of ID: " + employee.getId());
         req.setAttribute("forwardAddr", "view");
         req.getRequestDispatcher("alert-n-forward.jsp").forward(req, res);
     }
