@@ -27,7 +27,7 @@ public class EmployeeDao {
 
     public CompletableFuture<Integer> addAsync(Employee employee) {
         return CompletableFuture.supplyAsync(() -> {
-                return add(employee);
+            return add(employee);
         });
     }
 
@@ -41,7 +41,7 @@ public class EmployeeDao {
 
     public CompletableFuture<Integer> removeAsync(int id) {
         return CompletableFuture.supplyAsync(() -> {
-                return remove(id);
+            return remove(id);
         });
     }
 
@@ -55,7 +55,7 @@ public class EmployeeDao {
 
     public CompletableFuture<Integer> updateAsync(int id, Employee employee) {
         return CompletableFuture.supplyAsync(() -> {
-                return update(id, employee);
+            return update(id, employee);
         });
     }
 
