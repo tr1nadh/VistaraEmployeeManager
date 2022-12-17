@@ -1,5 +1,8 @@
 package com.example.vistaraemployeemanager.dao;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.jdbi.v3.core.Jdbi;
 
 import com.example.vistaraemployeemanager.model.Employee;
@@ -13,16 +16,31 @@ import java.util.concurrent.CompletableFuture;
 public class EmployeeDao {
 
     private final Jdbi jdbi;
+    private final SessionFactory factory = new Configuration().configure().buildSessionFactory();
 
     public EmployeeDao(JDBIManager manager) {
         jdbi = manager.getJdbiConnector();
     }
 
     public int add(Employee employee) {
-        var query = EmployeeDBQueryManager.getInsertQuery(employee);
-        return jdbi.withHandle(handle -> {
-            return handle.execute(query);
-        });
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            session.persist(employee);
+
+            trans.commit();
+            return 0;
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return -1;
+        }
     }
 
     public CompletableFuture<Integer> addAsync(Employee employee) {
@@ -32,11 +50,26 @@ public class EmployeeDao {
     }
 
     public int remove(int id) {
-        var query = EmployeeDBQueryManager.getDeleteQuery(id);
-        return jdbi.withHandle(handle -> {
-            var handleQuery = handle.createUpdate(query);
-            return handleQuery.execute();
-        });
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            var employee = session.find(Employee.class, id);
+            session.remove(employee);
+
+            trans.commit();
+            return 0;
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return -1;
+        }
+            
     }
 
     public CompletableFuture<Integer> removeAsync(int id) {
@@ -46,11 +79,24 @@ public class EmployeeDao {
     }
 
     public int update(int id, Employee employee) {
-        var query = EmployeeDBQueryManager.getUpdateQuery(id, employee);
-        return jdbi.withHandle(handle -> {
-            var handleQuery = handle.createUpdate(query);
-            return handleQuery.execute();
-        });
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            session.merge(employee);
+
+            trans.commit();
+            return 0;
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return -1;
+        }
     }
 
     public CompletableFuture<Integer> updateAsync(int id, Employee employee) {
