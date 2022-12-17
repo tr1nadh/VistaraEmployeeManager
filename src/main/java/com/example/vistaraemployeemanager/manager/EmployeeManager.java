@@ -18,12 +18,12 @@ public class EmployeeManager {
         this.employeeDao = employeeDao;
     }
 
-    public void add(Employee employee) {
+    public void add(Employee employee) throws Exception {
         hasChange = true;
 
-        var response = employeeDao.add(employee);
+        var response = employeeDao.addAsync(employee);
 
-        if (response > 0) System.out.println("Employee added: " + employee.getName());
+        if (response.get() == 0) System.out.println("Employee added: " + employee.getName());
         else System.out.println("Unable to add employee: " + employee.getName());
     }
 
@@ -32,7 +32,7 @@ public class EmployeeManager {
 
         var response = employeeDao.removeAsync(employeeID);
 
-        if (response.get() > 0) System.out.println("Employee with ID: " + employeeID + " is removed");
+        if (response.get() == 0) System.out.println("Employee with ID: " + employeeID + " is removed");
         else System.out.println("Unable to remove employee with ID: " + employeeID);
     }
 
@@ -41,7 +41,7 @@ public class EmployeeManager {
 
         var response = employeeDao.updateAsync(employeeID, employee);
 
-        if (response.get() > 0) System.out.println("Changes saved of ID: " + employeeID);
+        if (response.get() == 0) System.out.println("Changes saved of ID: " + employeeID);
         else System.out.println("Unable to save changes of ID: " + employeeID);
     }
 
