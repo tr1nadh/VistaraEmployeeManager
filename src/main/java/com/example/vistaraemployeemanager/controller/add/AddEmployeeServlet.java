@@ -16,7 +16,11 @@ public class AddEmployeeServlet extends ControllerHelper {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var employee = getEmployee(req);
         
-        getEmployeeManager().add(employee);
+        try {
+            getEmployeeManager().add(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         req.setAttribute("alrtMsg", "Successfully added employee: " + employee.getName());
         req.setAttribute("forwardAddr", "add");
