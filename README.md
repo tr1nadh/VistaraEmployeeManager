@@ -1,6 +1,18 @@
-# Vistara Employee Manager 2.0
-VEM 2.0 is a basic CRUD Application. It uses MVC architectural pattern.  
-HTML, CSS, JS, Bootstrap 5 & JSP is used as View, Servlet as a Controller and MySQL as a database.
+# Vistara Employee Manager 3.0
+VEM 3.0 is a basic CRUD Application with MVC pattern.
+
+## Tech
+### Frontend
+  1. HTML
+  2. CSS
+  3. JS
+  4. Bootstrap 5
+  5. JSP
+### Backend
+  1. Java
+  2. Servlet
+  3. MySQL
+  4. HikariCP + Hibernate
 
 ## How to use
 1. Download or Clone
