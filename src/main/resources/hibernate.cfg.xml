@@ -1,17 +1,32 @@
-<?xml version='1.0' encoding='UTF-8'?>  
+<?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC 
   "-//Hibernate/Hibernate Configuration DTD 3.0//EN" 
   "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-  
-<hibernate-configuration>  
-  
-    <session-factory>  
-        <property name="hbm2ddl.auto">update</property>  
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>  
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/employeesdb</property>  
-        <property name="hibernate.connection.username">root</property>  
-        <property name="hibernate.connection.password">Password fe</property>  
-    <mapping class="com.example.vistaraemployeemanager.model.Employee" />  
-    </session-factory>  
-  
+
+<hibernate-configuration>
+
+  <session-factory>
+    <property name="hbm2ddl.auto">update</property>
+    <property name="hbm2ddl.show_sql">true</property>
+    <property name="hbm2ddl.format_sql">false</property>
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    <!-- Data source -->
+
+    <property name="connection.provider_class">com.zaxxer.hikari.hibernate.HikariConnectionProvider</property>
+    <property name="hikari.dataSourceClassName">com.mysql.cj.jdbc.MysqlDataSource</property>
+    <property name="hikari.dataSource.url">jdbc:mysql://localhost:3306/employeesdb</property>
+    <property name="hikari.dataSource.user">root</property>
+    <property name="hikari.dataSource.password">Password fe</property>
+    <property name="hikari.minimumIdle">5</property>
+    <property name="hikari.maximumPoolSize">10</property>
+    <property name="hikari.idleTimeout">30000</property>
+    <property name="hikari.dataSource.cachePrepStmts">true</property>
+    <property name="hikari.dataSource.prepStmtCacheSize">250</property>
+    <property name="hikari.dataSource.prepStmtCacheSqlLimit">2048</property>
+    <property name="hikari.connectionTimeout">10000</property>
+
+    <mapping class="com.example.vistaraemployeemanager.model.Employee" />
+  </session-factory>
+
 </hibernate-configuration>  
