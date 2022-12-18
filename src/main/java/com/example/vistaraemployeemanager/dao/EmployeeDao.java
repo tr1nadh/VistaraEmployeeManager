@@ -2,25 +2,14 @@ package com.example.vistaraemployeemanager.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.jdbi.v3.core.Jdbi;
-
 import com.example.vistaraemployeemanager.model.Employee;
-import com.example.vistaraemployeemanager.database.JDBIManager;
-import com.example.vistaraemployeemanager.database.EmployeeDBQueryManager;
-
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class EmployeeDao {
 
-    private final Jdbi jdbi;
-    private final SessionFactory factory = new Configuration().configure().buildSessionFactory();
-
-    public EmployeeDao(JDBIManager manager) {
-        jdbi = manager.getJdbiConnector();
-    }
+    private static final SessionFactory factory = HibernateUtil.getSessionFactory();
 
     public int add(Employee employee) {
         Transaction trans = null;
@@ -32,6 +21,7 @@ public class EmployeeDao {
             session.persist(employee);
 
             trans.commit();
+
             return 0;
         } catch (Exception ex) {
             if (trans != null)
@@ -56,7 +46,7 @@ public class EmployeeDao {
             trans = session.getTransaction();
             trans.begin();
 
-            var employee = session.find(Employee.class, id);
+            var employee = session.get(Employee.class, id);
             session.remove(employee);
 
             trans.commit();
@@ -69,7 +59,7 @@ public class EmployeeDao {
 
             return -1;
         }
-            
+
     }
 
     public CompletableFuture<Integer> removeAsync(int id) {
@@ -106,11 +96,25 @@ public class EmployeeDao {
     }
 
     public ArrayList<Employee> getEmployees() {
-        var query = EmployeeDBQueryManager.getEmployeesQuery();
-        return (ArrayList<Employee>) jdbi.withHandle(handle -> {
-            var handleQuery = handle.createQuery(query);
-            return handleQuery.mapTo(Employee.class).list();
-        });
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            var empResultset = session.createNativeQuery("select * from employee", Employee.class);
+
+            trans.commit();
+
+            return (ArrayList<Employee>) empResultset.list();
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return null;
+        }
     }
 
     public CompletableFuture<ArrayList<Employee>> getEmployeesAsync() {
@@ -120,10 +124,30 @@ public class EmployeeDao {
     }
 
     public Optional<Employee> getEmployee(int id) {
-        var query = EmployeeDBQueryManager.getEmployee(id);
-        return jdbi.withHandle(handle -> {
-            var handleQuery = handle.createQuery(query);
-            return handleQuery.mapTo(Employee.class).findFirst();
+        Employee employee = null;
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            employee = session.get(Employee.class, id);
+
+            trans.commit();
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+        }
+
+        Optional<Employee> optEmp = Optional.ofNullable(employee);
+        return optEmp;
+    }
+
+    public CompletableFuture<Optional<Employee>> getEmployeeAsync(int id) {
+        return CompletableFuture.supplyAsync(() -> {
+            return getEmployee(id);
         });
     }
 
