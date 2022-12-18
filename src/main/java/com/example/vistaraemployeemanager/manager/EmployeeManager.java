@@ -58,6 +58,7 @@ public class EmployeeManager {
 
     public Optional<Employee> getEmployee(int employeeID) {
         var employee = employeeDao.getEmployee(employeeID);
+
         System.out.println("Successfully retrieved employee with id: " + employeeID);
         
         return employee;
