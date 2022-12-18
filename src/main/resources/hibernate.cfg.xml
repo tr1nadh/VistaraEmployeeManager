@@ -7,10 +7,10 @@
   
     <session-factory>  
         <property name="hbm2ddl.auto">update</property>  
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>  
-        <property name="connection.url">jdbc:mysql://localhost:3306/employeesdb</property>  
-        <property name="connection.username">root</property>  
-        <property name="connection.password">Password fe</property>  
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>  
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/employeesdb</property>  
+        <property name="hibernate.connection.username">root</property>  
+        <property name="hibernate.connection.password">Password fe</property>  
     <mapping class="com.example.vistaraemployeemanager.model.Employee" />  
     </session-factory>  
   
