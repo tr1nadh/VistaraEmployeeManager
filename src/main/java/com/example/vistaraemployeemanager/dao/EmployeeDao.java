@@ -9,7 +9,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class EmployeeDao {
 
-    private static final SessionFactory factory = HibernateUtil.getSessionFactory();
+    private final SessionFactory factory = HibernateUtil.getSessionFactory();
 
     public int add(Employee employee) {
         Transaction trans = null;
