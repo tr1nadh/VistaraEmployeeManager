@@ -12,7 +12,8 @@ VEM 3.0 is a basic CRUD Application with MVC pattern.
   1. Java
   2. Servlet
   3. MySQL
-  4. HikariCP + Hibernate
+  4. HikariCP
+  5. Hibernate
 
 ## How to use
 1. Download or Clone
