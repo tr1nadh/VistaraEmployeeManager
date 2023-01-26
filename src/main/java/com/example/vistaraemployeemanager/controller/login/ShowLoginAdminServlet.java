@@ -14,6 +14,11 @@ public class ShowLoginAdminServlet extends HttpServlet {
     
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+        if (req.getSession(false) != null) {
+            res.sendRedirect("view");
+            return;
+        }
+
         req.getRequestDispatcher("login-admin.html").include(req, res);
     }
 }
