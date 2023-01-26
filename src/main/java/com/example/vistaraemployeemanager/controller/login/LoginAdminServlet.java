@@ -16,7 +16,6 @@ public class LoginAdminServlet extends ControllerHelper {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var admin = getAdmin(req);
-
         if (admin.getName().equals("admin") && admin.getPassword().equals("pass")) {
             req.getSession(true);
             res.sendRedirect("view");
