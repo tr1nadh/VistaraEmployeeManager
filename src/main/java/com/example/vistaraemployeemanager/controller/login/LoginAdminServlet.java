@@ -18,7 +18,9 @@ public class LoginAdminServlet extends ControllerHelper {
         var admin = getAdmin(req);
 
         if (admin.getName().equals("admin") && admin.getPassword().equals("pass")) {
-            req.getRequestDispatcher("view").forward(req, res);
+            req.getSession(true);
+            res.sendRedirect("view");
+            return;
         }
 
         req.setAttribute("alrtMsg", "Name or password is wrong");
