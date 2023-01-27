@@ -1,6 +1,7 @@
 package com.example.vistaraemployeemanager.listener;
 
 import com.example.vistaraemployeemanager.manager.EmployeeManager;
+import com.example.vistaraemployeemanager.manager.SessionManager;
 import com.example.vistaraemployeemanager.dao.EmployeeDao;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
@@ -13,7 +14,9 @@ public class AppContextListener implements ServletContextListener {
         var ctx = event.getServletContext();
         
         var employeeManager = new EmployeeManager(new EmployeeDao());
+        var sessionManager = new SessionManager();
 
         ctx.setAttribute("employeeManager", employeeManager);
+        ctx.setAttribute("sessionManager", sessionManager);
     }
 }
