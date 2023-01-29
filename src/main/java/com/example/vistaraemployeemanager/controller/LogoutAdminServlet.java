@@ -12,7 +12,7 @@ public class LogoutAdminServlet extends ControllerHelper {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.getSession().invalidate();
+        req.getSession().setAttribute("login_status", false);
         res.sendRedirect("login");
     }
     
