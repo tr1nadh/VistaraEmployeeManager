@@ -12,7 +12,8 @@ public class AppContextListener implements ServletContextListener {
     
     public void contextInitialized(ServletContextEvent event) {
         var ctx = event.getServletContext();
-        
+        ctx.getSessionCookieConfig().setMaxAge(24 * 60 * 60);
+
         var employeeManager = new EmployeeManager(new EmployeeDao());
         var sessionManager = new SessionManager();
 
