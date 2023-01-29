@@ -17,7 +17,7 @@ public class LoginAdminServlet extends ControllerHelper {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var admin = getAdmin(req);
         if (admin.getName().equals("admin") && admin.getPassword().equals("pass")) {
-            req.getSession(true);
+            req.getSession().setAttribute("login_status", true);
             res.sendRedirect("view");
             return;
         }
