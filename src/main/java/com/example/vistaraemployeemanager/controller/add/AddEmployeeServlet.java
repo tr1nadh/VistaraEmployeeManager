@@ -8,7 +8,6 @@ import java.io.IOException;
 import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.controller.ControllerHelper;
 
-
 @WebServlet("/addEmployee")
 public class AddEmployeeServlet extends ControllerHelper {
 

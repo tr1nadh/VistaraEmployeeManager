@@ -2,7 +2,6 @@ package com.example.vistaraemployeemanager.manager;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
 import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.dao.EmployeeDao;
 

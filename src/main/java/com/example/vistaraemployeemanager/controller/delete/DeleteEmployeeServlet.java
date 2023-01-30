@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.example.vistaraemployeemanager.controller.ControllerHelper;
 
-
 @WebServlet("/deleteEmployee")
 public class DeleteEmployeeServlet extends ControllerHelper {
 
