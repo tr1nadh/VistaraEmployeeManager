@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.controller.login;
+package com.example.vistaraemployeemanager.controller.auth;
 
 import java.io.IOException;
 
