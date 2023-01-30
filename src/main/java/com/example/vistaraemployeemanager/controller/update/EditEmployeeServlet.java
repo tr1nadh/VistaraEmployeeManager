@@ -3,6 +3,7 @@ package com.example.vistaraemployeemanager.controller.update;
 import java.io.IOException;
 import com.example.vistaraemployeemanager.controller.ControllerHelper;
 import com.example.vistaraemployeemanager.model.Employee;
+import com.example.vistaraemployeemanager.model.HTTPExchanges;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,9 +25,7 @@ public class EditEmployeeServlet extends ControllerHelper {
         var empID = Integer.parseInt(req.getParameter("id"));
         var employee = getEmployeeManager().getEmployee(empID);
         if (employee.isEmpty()) {
-            req.setAttribute("alrtMsg", "No such employee with ID: " + empID);
-            req.setAttribute("forwardAddr", "view");
-            req.getRequestDispatcher("alert-n-forward.jsp").forward(req, res);
+            alertNForward(new HTTPExchanges(req, res), "No such employee with ID: " + empID, "view");
             return null;
         }
         
