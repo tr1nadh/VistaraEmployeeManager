@@ -12,13 +12,15 @@ public class HibernateUtil {
 
         var configure = new Configuration();
 
+        // Hibernate
+
         configure.setProperty(hb+"hbm2ddl.auto", "update");
         configure.setProperty(hb+"hbm2ddl.show_sql", "true");
         configure.setProperty(hb+"hbm2ddl.format_sql", "false");
         configure.setProperty(hb+"dialect", "org.hibernate.dialect.MySQLDialect");
         configure.setProperty(hb+"connection.provider_class", "com.zaxxer.hikari.hibernate.HikariConnectionProvider");
 
-        // Data source
+        // Hikari data source
         
         configure.setProperty(hb+hk+"dataSourceClassName", "com.mysql.cj.jdbc.MysqlDataSource");
         configure.setProperty(hb+hk+"dataSource.url", "jdbc:mysql://localhost:3306/vemdb");
@@ -33,6 +35,7 @@ public class HibernateUtil {
         configure.setProperty(hb+hk+"connectionTimeout", "10000");
 
         configure.addAnnotatedClass(Employee.class);
+
         return configure.buildSessionFactory();
     }
 }
