@@ -3,6 +3,7 @@ package com.example.vistaraemployeemanager.dao;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import com.example.vistaraemployeemanager.model.Employee;
+import com.example.vistaraemployeemanager.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
