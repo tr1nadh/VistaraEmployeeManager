@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.dao;
+package com.example.vistaraemployeemanager.util;
 
 import org.jdbi.v3.core.Jdbi;
 

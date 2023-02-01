@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.dao;
+package com.example.vistaraemployeemanager.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
