@@ -22,7 +22,14 @@
 	<%
 	ArrayList<Employee> empList = (ArrayList<Employee>) request.getAttribute("empList");
 	%>
-    <div class='container border mt-3'>
+    <div class="container">
+        <form action="view" method="get">
+        <div>
+            <input class="form-control" name="name" placeholder="search name & regex also works"> 
+        </div>
+        </form>
+    </div>
+    <div class='container border mt-1'>
     <h2 class='text-center mb-4'>View Employees</h2>
     <table class='table table-hover'>
     <tbody>
