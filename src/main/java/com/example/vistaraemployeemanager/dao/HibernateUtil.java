@@ -5,11 +5,11 @@ import org.hibernate.cfg.Configuration;
 import com.example.vistaraemployeemanager.model.Employee;
 
 public class HibernateUtil {
-
-    private static final String hb = "hibernate.";
-    private static final String hk = "hikari.";
-
+    
     public static SessionFactory getSessionFactory() {
+        final String hb = "hibernate.";
+        final String hk = "hikari.";
+
         var configure = new Configuration();
 
         configure.setProperty(hb+"hbm2ddl.auto", "update");
