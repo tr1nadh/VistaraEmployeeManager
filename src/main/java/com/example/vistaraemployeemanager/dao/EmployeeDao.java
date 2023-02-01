@@ -152,4 +152,26 @@ public class EmployeeDao {
         });
     }
 
+    public ArrayList<Employee> findEmployee(String name) {
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            var empResultset = session.createNativeQuery("SELECT * FROM employee WHERE name REGEXP '" + name + "'", Employee.class);
+
+            trans.commit();
+
+            return (ArrayList<Employee>) empResultset.list();
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return null;
+        }
+    }
+
 }
