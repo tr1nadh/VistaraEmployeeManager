@@ -6,8 +6,8 @@ function onLoadFunction(isEmpListEmpty, nextPageValue, shouldDisablePgntion) {
         document.getElementById("prev-link").href = "view";
     }
     if (nextPageValue <= 2 || nextPageValue == -1) {
-        document.getElementById("prev-item").classList.add("disabled");
         document.getElementById("first-item").classList.add("disabled");
+        document.getElementById("prev-item").classList.add("disabled");
     }
     if (nextPageValue == -1) {
         document.getElementById("next-item").classList.add("disabled");
