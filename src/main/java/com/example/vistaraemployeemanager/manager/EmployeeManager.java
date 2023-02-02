@@ -66,4 +66,8 @@ public class EmployeeManager {
     public ArrayList<Employee> findEmployee(String name) {
         return employeeDao.findEmployee(name);
     }
+
+    public ArrayList<Employee> getEmployees(int startFrom, int max) {
+        return employeeDao.getEmployees(startFrom, max);
+    }
 }
