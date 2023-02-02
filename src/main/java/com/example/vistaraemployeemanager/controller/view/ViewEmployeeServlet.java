@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.example.vistaraemployeemanager.controller.ControllerHelper;
+import com.example.vistaraemployeemanager.model.HTTPExchanges;
 
 @WebServlet("/view")
 public class ViewEmployeeServlet extends ControllerHelper {
@@ -18,12 +19,22 @@ public class ViewEmployeeServlet extends ControllerHelper {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        try {
-            var empList = getEmployeeManager().getAllEmployees();
-            req.setAttribute("empList", empList);
-            req.getRequestDispatcher("view-employee.jsp").forward(req, res);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        var max = 15; 
+
+        var pageStr = req.getParameter("p");
+        if (pageStr == null) pageStr = "0";
+        var pageInt = Integer.parseInt(pageStr) - 1;
+        pageInt = (pageInt < 0) ? 0 : pageInt;
+        var startFrom = max * pageInt;
+        pageInt++;
+        var next = pageInt + 1;
+        var prev = pageInt - 1;
+
+        var empList = getEmployeeManager().getEmployees(startFrom, max);
+        if (empList.isEmpty()) --next;
+        req.setAttribute("empList", empList);
+        req.setAttribute("next", next);
+        req.setAttribute("prev", prev);
+        req.getRequestDispatcher("view-employee.jsp").forward(req, res);
     }
 }
