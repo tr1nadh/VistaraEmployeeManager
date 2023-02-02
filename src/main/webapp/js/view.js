@@ -1,14 +1,16 @@
-function onLoadFunction(isEmpListEmpty, nextPageValue) {
+function onLoadFunction(isEmpListEmpty, nextPageValue, shouldDisablePgntion) {
     if (isEmpListEmpty) {
         document.getElementById("next-item").classList.add("disabled");
     }
-
     if (nextPageValue == 3) {
         document.getElementById("prev-link").href = "view";
     }
-    if (nextPageValue <= 2) {
+    if (nextPageValue <= 2 || nextPageValue == -1) {
         document.getElementById("prev-item").classList.add("disabled");
         document.getElementById("first-item").classList.add("disabled");
+    }
+    if (nextPageValue == -1) {
+        document.getElementById("next-item").classList.add("disabled");
     }
 }
 
