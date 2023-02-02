@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.example.vistaraemployeemanager.controller.ControllerHelper;
-import com.example.vistaraemployeemanager.model.HTTPExchanges;
 
 @WebServlet("/view")
 public class ViewEmployeeServlet extends ControllerHelper {
