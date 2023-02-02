@@ -25,6 +25,7 @@ public class ViewEmployeeSearchServletFilter implements Filter {
         var em = (EmployeeManager) req.getServletContext().getAttribute("employeeManager");
         var empList = em.findEmployee(name);
         req.setAttribute("empList", empList);
+        req.setAttribute("next", -1);
         req.getRequestDispatcher("view-employee.jsp").forward(req, res);
     }
 }
