@@ -174,4 +174,26 @@ public class EmployeeDao {
         }
     }
 
+    
+    public ArrayList<Employee> getEmployees(int startFrom, int max) {
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            var empResultset = session.createNativeQuery("SELECT * FROM employee LIMIT " + startFrom + ", " + max, Employee.class);
+
+            trans.commit();
+
+            return (ArrayList<Employee>) empResultset.list();
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return null;
+        }
+    }
 }
