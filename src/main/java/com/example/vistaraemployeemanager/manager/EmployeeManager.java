@@ -2,7 +2,6 @@ package com.example.vistaraemployeemanager.manager;
 
 import java.util.ArrayList;
 import java.util.Optional;
-
 import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.dao.EmployeeDao;
 
@@ -62,5 +61,13 @@ public class EmployeeManager {
         System.out.println("Successfully retrieved employee with id: " + employeeID);
         
         return employee;
+    }
+
+    public ArrayList<Employee> findEmployee(String name) {
+        return employeeDao.findEmployee(name);
+    }
+
+    public ArrayList<Employee> getEmployees(int startFrom, int max) {
+        return employeeDao.getEmployees(startFrom, max);
     }
 }

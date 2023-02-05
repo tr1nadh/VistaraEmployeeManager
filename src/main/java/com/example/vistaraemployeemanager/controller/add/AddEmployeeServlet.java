@@ -6,8 +6,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.example.vistaraemployeemanager.model.Employee;
+import com.example.vistaraemployeemanager.model.HTTPExchanges;
 import com.example.vistaraemployeemanager.controller.ControllerHelper;
-
 
 @WebServlet("/addEmployee")
 public class AddEmployeeServlet extends ControllerHelper {
@@ -22,9 +22,7 @@ public class AddEmployeeServlet extends ControllerHelper {
             e.printStackTrace();
         }
 
-        req.setAttribute("alrtMsg", "Successfully added employee: " + employee.getName());
-        req.setAttribute("forwardAddr", "add");
-        req.getRequestDispatcher("alert-n-forward.jsp").forward(req, res);
+        alertNForward(new HTTPExchanges(req, res), "Successfully added employee: " + employee.getName(), "add");
     }
 
     private Employee getEmployee(HttpServletRequest req) {

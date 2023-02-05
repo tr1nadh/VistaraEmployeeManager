@@ -1,10 +1,9 @@
-package com.example.vistaraemployeemanager.controller.login;
+package com.example.vistaraemployeemanager.controller.auth;
 
 import java.io.IOException;
-
 import com.example.vistaraemployeemanager.controller.ControllerHelper;
 import com.example.vistaraemployeemanager.model.Admin;
-
+import com.example.vistaraemployeemanager.model.HTTPExchanges;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,14 +16,12 @@ public class LoginAdminServlet extends ControllerHelper {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         var admin = getAdmin(req);
         if (admin.getName().equals("admin") && admin.getPassword().equals("pass")) {
-            req.getSession(true);
+            req.getSession().setAttribute("login_status", true);
             res.sendRedirect("view");
             return;
         }
 
-        req.setAttribute("alrtMsg", "Name or password is wrong");
-        req.setAttribute("forwardAddr", "login");
-        req.getRequestDispatcher("alert-n-forward.jsp").forward(req, res);
+        alertNForward(new HTTPExchanges(req, res), "Name or password is wrong", "login");
     }
 
     private Admin getAdmin(HttpServletRequest req) {

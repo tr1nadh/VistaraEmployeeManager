@@ -3,6 +3,7 @@ package com.example.vistaraemployeemanager.dao;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import com.example.vistaraemployeemanager.model.Employee;
+import com.example.vistaraemployeemanager.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -151,4 +152,48 @@ public class EmployeeDao {
         });
     }
 
+    public ArrayList<Employee> findEmployee(String name) {
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            var empResultset = session.createNativeQuery("SELECT * FROM employee WHERE name REGEXP '" + name + "'", Employee.class);
+
+            trans.commit();
+
+            return (ArrayList<Employee>) empResultset.list();
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return null;
+        }
+    }
+
+    
+    public ArrayList<Employee> getEmployees(int startFrom, int max) {
+        Transaction trans = null;
+        try (var session = factory.openSession()) {
+
+            trans = session.getTransaction();
+            trans.begin();
+
+            var empResultset = session.createNativeQuery("SELECT * FROM employee LIMIT " + startFrom + ", " + max, Employee.class);
+
+            trans.commit();
+
+            return (ArrayList<Employee>) empResultset.list();
+        } catch (Exception ex) {
+            if (trans != null)
+                trans.rollback();
+
+            ex.printStackTrace();
+
+            return null;
+        }
+    }
 }
