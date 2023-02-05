@@ -1,25 +1,14 @@
-# Vistara Employee Manager 3.0
-VEM 3.0 is a basic CRUD Application with MVC pattern.
+# Vistara Employee Manager 4.0
+VEM is a basic CRUD Application made with Servlet, JSP, Hibernate, Bootstrap, HTML, CSS and JS.
 
-## Tech
-### Frontend
-  1. HTML
-  2. CSS
-  3. JS
-  4. Bootstrap 5
-  5. JSP
-### Backend
-  1. Java
-  2. Servlet
-  3. MySQL
-  4. HikariCP
-  5. Hibernate
+## Added
+**Authentication*  
+**Search bar*  
+**Pagination*  
+**Persistent session*
 
 ## How to use
-1. Download or Clone
-2. Run with your preferred server
-
-No auth is implemented, just run.
+Login with username *admin* and passowrd *pass*
 
 ## Screenshots
 ![Screenshot from 2022-12-13 08-53-18](https://user-images.githubusercontent.com/53462309/207220418-50e208d2-7c24-46ce-b5d1-53ab3751419e.png)
