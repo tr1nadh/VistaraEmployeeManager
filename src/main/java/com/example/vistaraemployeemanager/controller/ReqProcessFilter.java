@@ -1,7 +1,6 @@
 package com.example.vistaraemployeemanager.controller;
 
 import java.io.IOException;
-import com.example.vistaraemployeemanager.manager.SessionManager;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
