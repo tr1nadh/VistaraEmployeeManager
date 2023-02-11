@@ -21,7 +21,7 @@ public class ViewEmployeeSearchServletFilter extends Filter {
             return;
         }
 
-        var em = (EmployeeManager) req.getServletContext().getAttribute("employeeManager");
+        var em = getEmployeeManager(req);
         var empList = em.findEmployee(name);
         req.setAttribute("empList", empList);
         req.setAttribute("next", -1);
