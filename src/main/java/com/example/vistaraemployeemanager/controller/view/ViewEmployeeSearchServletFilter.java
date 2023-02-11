@@ -1,9 +1,7 @@
 package com.example.vistaraemployeemanager.controller.view;
 
 import java.io.IOException;
-
 import com.example.vistaraemployeemanager.controller.Filter;
-import com.example.vistaraemployeemanager.manager.EmployeeManager;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
