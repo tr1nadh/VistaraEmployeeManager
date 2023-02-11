@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager.controller;
+package com.example.vistaraemployeemanager.filter;
 
 import java.io.IOException;
 import com.example.vistaraemployeemanager.manager.SessionManager;
