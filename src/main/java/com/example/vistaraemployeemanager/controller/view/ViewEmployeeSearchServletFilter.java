@@ -2,9 +2,8 @@ package com.example.vistaraemployeemanager.controller.view;
 
 import java.io.IOException;
 
+import com.example.vistaraemployeemanager.controller.Filter;
 import com.example.vistaraemployeemanager.manager.EmployeeManager;
-
-import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
@@ -12,7 +11,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 
 @WebFilter("/view")
-public class ViewEmployeeSearchServletFilter implements Filter {
+public class ViewEmployeeSearchServletFilter extends Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {

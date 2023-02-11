@@ -2,7 +2,6 @@ package com.example.vistaraemployeemanager.controller;
 
 import java.io.IOException;
 import com.example.vistaraemployeemanager.manager.SessionManager;
-import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
@@ -11,7 +10,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 
 @WebFilter("/*")
-public class ReqProcessFilter implements Filter {
+public class ReqProcessFilter extends Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
