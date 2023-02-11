@@ -7,7 +7,7 @@ import com.example.vistaraemployeemanager.model.HTTPExchanges;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 
-public abstract class ControllerHelper extends HttpServlet {
+public abstract class Controller extends HttpServlet {
 
     protected SessionManager getSessionManager() {
         return (SessionManager) getServletContext().getAttribute("sessionManager");
