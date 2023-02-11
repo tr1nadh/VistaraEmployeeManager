@@ -1,7 +1,7 @@
 package com.example.vistaraemployeemanager.controller.auth;
 
 import java.io.IOException;
-import com.example.vistaraemployeemanager.controller.ControllerHelper;
+import com.example.vistaraemployeemanager.controller.Controller;
 import com.example.vistaraemployeemanager.model.Admin;
 import com.example.vistaraemployeemanager.model.HTTPExchanges;
 import jakarta.servlet.ServletException;
@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/loginAdmin")
-public class LoginAdminServlet extends ControllerHelper {
+public class LoginAdminServlet extends Controller {
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
