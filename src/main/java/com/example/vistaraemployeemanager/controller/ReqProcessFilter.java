@@ -15,7 +15,7 @@ public class ReqProcessFilter extends Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         var hreq = ((HttpServletRequest) request);
-        var sm = (SessionManager) hreq.getServletContext().getAttribute("sessionManager");
+        var sm = getSessionManager(request);
         var sessionID = hreq.getSession().getId();
         if (!hreq.getRequestURI().equals("/app/loginAdmin") && sm.getLoginStatus(sessionID) == false) {
             request.getRequestDispatcher("login").forward(request, response);
