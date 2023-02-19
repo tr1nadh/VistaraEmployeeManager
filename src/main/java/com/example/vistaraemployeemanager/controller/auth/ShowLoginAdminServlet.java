@@ -17,6 +17,6 @@ public class ShowLoginAdminServlet extends Controller {
             return;
         }
 
-        req.getRequestDispatcher("login-admin.html").include(req, res);
+        req.getRequestDispatcher("login-admin.jsp").include(req, res);
     }
 }
