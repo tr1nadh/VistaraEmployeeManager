@@ -38,4 +38,18 @@ public class EmployeeController {
 
         return "/view";
     }
+
+    @RequestMapping("/editEmployee")
+    public ModelAndView edit(int id) {
+        var optEmployee = manager.getEmployee(id);
+        if (optEmployee.isEmpty())
+            return new ModelAndView("view");
+        
+        var employee = optEmployee.get();
+        var mv = new ModelAndView();
+        mv.addObject("emp", employee);
+        mv.setViewName("edit-employee.jsp");
+
+        return mv;
+    }
 }
