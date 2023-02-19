@@ -52,4 +52,11 @@ public class EmployeeController {
 
         return mv;
     }
+
+    @PostMapping("/saveEmployee")
+    public String save(Employee employee) throws Exception {
+        manager.update(employee.getId(), employee);
+
+        return "view";
+    }
 }
