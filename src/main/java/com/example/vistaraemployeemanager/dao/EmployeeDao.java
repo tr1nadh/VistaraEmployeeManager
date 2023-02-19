@@ -2,12 +2,15 @@ package com.example.vistaraemployeemanager.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Component;
+
 import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.util.HibernateUtil;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
+@Component
 public class EmployeeDao {
 
     private final SessionFactory factory = HibernateUtil.getSessionFactory();
