@@ -20,7 +20,7 @@
 
     <%-- Navbar --%>
 
-    <jsp:include page="navbar.html" />
+    <jsp:include page="navbar.jsp" />
 
     <body>
 
