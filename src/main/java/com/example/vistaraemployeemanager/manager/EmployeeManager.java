@@ -2,15 +2,20 @@ package com.example.vistaraemployeemanager.manager;
 
 import java.util.ArrayList;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.dao.EmployeeDao;
 
+@Component
 public class EmployeeManager {
 
     private boolean hasChange = true;
     private ArrayList<Employee> empList;
 
-
+    @Autowired
     private final EmployeeDao employeeDao;
 
     public EmployeeManager(EmployeeDao employeeDao) {
