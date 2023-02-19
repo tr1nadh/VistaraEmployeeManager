@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan({""})
+@ComponentScan({"com.example.vistaraemployeemanager.manager", "com.example.vistaraemployeemanager.dao", "com.example.vistaraemployeemanager.controller"})
 public class AppConfig {
     
 }
