@@ -32,6 +32,12 @@
       <artifactId>jdbi3-core</artifactId>
       <version>3.36.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>6.0.5</version>
+    </dependency>
   </dependencies>
 
   <build>
