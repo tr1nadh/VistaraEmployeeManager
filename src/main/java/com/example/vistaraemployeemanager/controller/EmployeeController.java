@@ -59,4 +59,28 @@ public class EmployeeController {
 
         return "view";
     }
+
+    @RequestMapping("/view")
+    public ModelAndView view(String p) {
+        var max = 10;
+        p = (p == null) ? "1" : p;
+        var pInt = Integer.parseInt(p);
+        var startFrom = calculateStartFromValue(pInt - 1, max);
+        var empList = manager.getEmployees(startFrom, max);
+        var next = (empList.isEmpty()) ? pInt : (pInt + 1);
+        var prev = pInt - 1;
+
+        var mv = new ModelAndView();
+        mv.addObject("empList", empList);
+        mv.addObject("next", next);
+        mv.addObject("prev", prev);
+        mv.setViewName("view-employee.jsp");
+
+        return mv;
+    }
+
+    private int calculateStartFromValue(int pageInt, int max) {
+        pageInt = (pageInt < 0) ? 0 : pageInt;
+        return pageInt * max;
+    }
 }
