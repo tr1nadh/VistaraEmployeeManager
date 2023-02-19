@@ -12,6 +12,6 @@ public class ShowAddEmployeeFieldsServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        req.getRequestDispatcher("add-employee.html").include(req, res);
+        req.getRequestDispatcher("add-employee.jsp").include(req, res);
     }
 }
