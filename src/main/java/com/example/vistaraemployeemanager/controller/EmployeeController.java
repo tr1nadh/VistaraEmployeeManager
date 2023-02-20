@@ -61,7 +61,10 @@ public class EmployeeController {
     }
 
     @RequestMapping("/view")
-    public ModelAndView view(String p) {
+    public ModelAndView view(String p, String name) {
+        if (name != null && !name.isBlank() && !name.isEmpty()) 
+            return filteredView(name);
+
         var max = 10;
         p = (p == null) ? "1" : p;
         var pInt = Integer.parseInt(p);
@@ -82,5 +85,15 @@ public class EmployeeController {
     private int calculateStartFromValue(int pageInt, int max) {
         pageInt = (pageInt < 0) ? 0 : pageInt;
         return pageInt * max;
+    }
+
+    public ModelAndView filteredView(String name) {
+        var empList = manager.findEmployee(name);
+        var mv = new ModelAndView();
+        mv.addObject("empList", empList);
+        mv.addObject("next", -1);
+        mv.setViewName("view-employee.jsp");
+
+        return mv;
     }
 }
