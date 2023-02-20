@@ -34,10 +34,10 @@ public class EmployeeController {
     }
 
     @GetMapping("/deleteEmployee")
-    public String delete(@RequestParam int id) throws Exception {
+    public RedirectView delete(@RequestParam int id) throws Exception {
         manager.remove(id);
 
-        return "/view";
+        return new RedirectView("view");
     }
 
     @RequestMapping("/editEmployee")
