@@ -1,6 +1,7 @@
 package com.example.vistaraemployeemanager.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -18,6 +19,13 @@ public class SessionController {
             return new RedirectView("view");
         }
 
+        return new RedirectView("login");
+    }
+
+    @GetMapping("/logout")
+    public RedirectView logout(HttpServletRequest req) {
+        req.getSession().setAttribute("login_status", false);
+        
         return new RedirectView("login");
     }
 }
