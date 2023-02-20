@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 import com.example.vistaraemployeemanager.manager.EmployeeManager;
 import com.example.vistaraemployeemanager.model.Employee;
 
@@ -21,10 +22,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/addEmployee")
-    public ModelAndView add(Employee employee) throws Exception {
+    public RedirectView add(Employee employee) throws Exception {
         manager.add(employee);
 
-        return new ModelAndView("/add");
+        return new RedirectView("add");
     }
 
     @RequestMapping("/add")
