@@ -8,12 +8,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @RequestMapping("/")
-public class ReqProcessController implements HandlerInterceptor {
+public class ReqProcessHandler implements HandlerInterceptor {
 
     @Autowired
     private final SessionManager manager;
 
-    public ReqProcessController(SessionManager manager) {
+    public ReqProcessHandler(SessionManager manager) {
         this.manager = manager;
     }
 
