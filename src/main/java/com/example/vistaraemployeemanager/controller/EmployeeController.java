@@ -55,10 +55,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/saveEmployee")
-    public String save(Employee employee) throws Exception {
+    public RedirectView save(Employee employee) throws Exception {
         manager.update(employee.getId(), employee);
 
-        return "view";
+        return new RedirectView("view");
     }
 
     @RequestMapping("/view")
