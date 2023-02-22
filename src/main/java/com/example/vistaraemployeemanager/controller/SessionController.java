@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-import com.example.vistaraemployeemanager.manager.SessionManager;
+import com.example.vistaraemployeemanager.manager.SessionService;
 import com.example.vistaraemployeemanager.model.Admin;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -15,9 +15,9 @@ import jakarta.servlet.http.HttpServletRequest;
 public class SessionController {
 
     @Autowired
-    private final SessionManager manager;
+    private final SessionService manager;
 
-    public SessionController(SessionManager manager) {
+    public SessionController(SessionService manager) {
         this.manager = manager;
     }
     

@@ -3,7 +3,7 @@ package com.example.vistaraemployeemanager.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.HandlerInterceptor;
-import com.example.vistaraemployeemanager.manager.SessionManager;
+import com.example.vistaraemployeemanager.manager.SessionService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -11,9 +11,9 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ReqProcessHandler implements HandlerInterceptor {
 
     @Autowired
-    private final SessionManager manager;
+    private final SessionService manager;
 
-    public ReqProcessHandler(SessionManager manager) {
+    public ReqProcessHandler(SessionService manager) {
         this.manager = manager;
     }
 

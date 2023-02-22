@@ -1,12 +1,12 @@
 package com.example.vistaraemployeemanager.listener;
 
-import com.example.vistaraemployeemanager.manager.SessionManager;
+import com.example.vistaraemployeemanager.manager.SessionService;
 
 import jakarta.servlet.http.HttpSession;
 
 public abstract class Listener {
     
-    protected SessionManager getSessionManager(HttpSession session) {
-        return (SessionManager) session.getServletContext().getAttribute("sessionManager");
+    protected SessionService getSessionManager(HttpSession session) {
+        return (SessionService) session.getServletContext().getAttribute("sessionManager");
     }
 }
