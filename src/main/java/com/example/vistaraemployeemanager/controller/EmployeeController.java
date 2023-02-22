@@ -16,15 +16,15 @@ import com.example.vistaraemployeemanager.service.EmployeeService;
 public class EmployeeController {
     
     @Autowired
-    private final EmployeeService manager;
+    private final EmployeeService employeeService;
 
-    public EmployeeController(EmployeeService manager) {
-        this.manager = manager;
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
 
     @PostMapping("/addEmployee")
     public RedirectView add(Employee employee) throws Exception {
-        manager.add(employee);
+        employeeService.add(employee);
 
         return new RedirectView("add");
     }
@@ -36,14 +36,14 @@ public class EmployeeController {
 
     @GetMapping("/deleteEmployee")
     public RedirectView delete(@RequestParam int id) throws Exception {
-        manager.remove(id);
+        employeeService.remove(id);
 
         return new RedirectView("view");
     }
 
     @RequestMapping("/editEmployee")
     public ModelAndView edit(int id) {
-        var optEmployee = manager.getEmployee(id);
+        var optEmployee = employeeService.getEmployee(id);
         if (optEmployee.isEmpty())
             return new ModelAndView("view");
         
@@ -57,7 +57,7 @@ public class EmployeeController {
 
     @PostMapping("/saveEmployee")
     public RedirectView save(Employee employee) throws Exception {
-        manager.update(employee.getId(), employee);
+        employeeService.update(employee.getId(), employee);
 
         return new RedirectView("view");
     }
@@ -71,7 +71,7 @@ public class EmployeeController {
         p = (p == null) ? "1" : p;
         var pInt = Integer.parseInt(p);
         var startFrom = calculateStartFromValue(pInt - 1, max);
-        var empList = manager.getEmployees(startFrom, max);
+        var empList = employeeService.getEmployees(startFrom, max);
         var next = (empList.isEmpty()) ? pInt : (pInt + 1);
         var prev = pInt - 1;
 
@@ -90,7 +90,7 @@ public class EmployeeController {
     }
 
     public ModelAndView filteredView(String name) {
-        var empList = manager.findEmployee(name);
+        var empList = employeeService.findEmployee(name);
         var mv = new ModelAndView();
         mv.addObject("empList", empList);
         mv.addObject("next", -1);
