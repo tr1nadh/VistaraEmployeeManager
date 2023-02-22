@@ -10,7 +10,7 @@ import com.example.vistaraemployeemanager.dao.EmployeeDao;
 import com.example.vistaraemployeemanager.model.Employee;
 
 @Service
-public class EmployeeManager {
+public class EmployeeService {
 
     private boolean hasChange = true;
     private ArrayList<Employee> empList;
@@ -18,7 +18,7 @@ public class EmployeeManager {
     @Autowired
     private final EmployeeDao employeeDao;
 
-    public EmployeeManager(EmployeeDao employeeDao) {
+    public EmployeeService(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }
 
