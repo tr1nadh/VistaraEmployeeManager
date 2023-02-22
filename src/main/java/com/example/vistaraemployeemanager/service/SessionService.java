@@ -2,6 +2,7 @@ package com.example.vistaraemployeemanager.service;
 
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.vistaraemployeemanager.dao.SessionDao;
@@ -11,6 +12,7 @@ public class SessionService {
 
     private HashMap<String, Boolean> sessions = new HashMap<>();
 
+    @Autowired
     private final SessionDao sessionDao;
 
     public SessionService(SessionDao sessionDao) {
