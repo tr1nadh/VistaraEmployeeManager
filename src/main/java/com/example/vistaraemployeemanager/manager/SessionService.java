@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.example.vistaraemployeemanager.dao.SessionDao;
 
 @Component
-public class SessionManager {
+public class SessionService {
 
     private HashMap<String, Boolean> sessions = new HashMap<>();
     
