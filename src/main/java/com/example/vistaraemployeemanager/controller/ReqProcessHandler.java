@@ -13,16 +13,16 @@ import jakarta.servlet.http.HttpServletResponse;
 public class ReqProcessHandler implements HandlerInterceptor {
 
     @Autowired
-    private final SessionService manager;
+    private final SessionService sessionService;
 
-    public ReqProcessHandler(SessionService manager) {
-        this.manager = manager;
+    public ReqProcessHandler(SessionService sessionService) {
+        this.sessionService = sessionService;
     }
 
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler) throws Exception {
         var sessionId = req.getSession().getId();
-        if (!req.getRequestURI().equals("/app/loginAdmin") && manager.getLoginStatus(sessionId) == false) {
+        if (!req.getRequestURI().equals("/app/loginAdmin") && sessionService.getLoginStatus(sessionId) == false) {
             return false;
         }
 
