@@ -1,6 +1,6 @@
 package com.example.vistaraemployeemanager.listener;
 
-import com.example.vistaraemployeemanager.manager.SessionService;
+import com.example.vistaraemployeemanager.service.SessionService;
 
 import jakarta.servlet.http.HttpSession;
 
