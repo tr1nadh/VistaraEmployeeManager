@@ -2,11 +2,11 @@ package com.example.vistaraemployeemanager.manager;
 
 import java.util.HashMap;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.example.vistaraemployeemanager.dao.SessionDao;
 
-@Component
+@Service
 public class SessionService {
 
     private HashMap<String, Boolean> sessions = new HashMap<>();
