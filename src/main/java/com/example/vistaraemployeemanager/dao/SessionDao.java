@@ -1,8 +1,11 @@
 package com.example.vistaraemployeemanager.dao;
 
 import org.jdbi.v3.core.Jdbi;
+import org.springframework.stereotype.Repository;
+
 import com.example.vistaraemployeemanager.util.JDBIUtil;
 
+@Repository
 public class SessionDao {
 
     private final static Jdbi jdbi = JDBIUtil.getJDBI();
