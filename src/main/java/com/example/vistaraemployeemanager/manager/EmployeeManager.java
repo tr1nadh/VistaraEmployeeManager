@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import com.example.vistaraemployeemanager.model.Employee;
 import com.example.vistaraemployeemanager.dao.EmployeeDao;
+import com.example.vistaraemployeemanager.model.Employee;
 
-@Component
+@Service
 public class EmployeeManager {
 
     private boolean hasChange = true;
