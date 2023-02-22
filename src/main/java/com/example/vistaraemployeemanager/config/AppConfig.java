@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"com.example.vistaraemployeemanager.manager", "com.example.vistaraemployeemanager.dao", "com.example.vistaraemployeemanager.controller"})
+@ComponentScan({"com.example.vistaraemployeemanager.service", "com.example.vistaraemployeemanager.dao", "com.example.vistaraemployeemanager.controller"})
 public class AppConfig extends WebMvcConfigurationSupport {
     
     @Override
