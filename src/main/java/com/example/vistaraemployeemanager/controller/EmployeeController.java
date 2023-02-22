@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-import com.example.vistaraemployeemanager.manager.EmployeeManager;
+import com.example.vistaraemployeemanager.manager.EmployeeService;
 import com.example.vistaraemployeemanager.model.Employee;
 
 @Controller
 public class EmployeeController {
     
     @Autowired
-    private final EmployeeManager manager;
+    private final EmployeeService manager;
 
-    public EmployeeController(EmployeeManager manager) {
+    public EmployeeController(EmployeeService manager) {
         this.manager = manager;
     }
 
