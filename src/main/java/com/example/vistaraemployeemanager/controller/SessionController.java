@@ -17,10 +17,10 @@ import jakarta.servlet.http.HttpServletRequest;
 public class SessionController {
 
     @Autowired
-    private final SessionService manager;
+    private final SessionService sessionService;
 
-    public SessionController(SessionService manager) {
-        this.manager = manager;
+    public SessionController(SessionService sessionService) {
+        this.sessionService = sessionService;
     }
     
     @PostMapping("/loginAdmin")
@@ -42,7 +42,7 @@ public class SessionController {
 
     @RequestMapping("/login")
     public ModelAndView showLogin(HttpServletRequest req) {
-        if (manager.getLoginStatus(req.getSession().getId())) {
+        if (sessionService.getLoginStatus(req.getSession().getId())) {
             return new ModelAndView("redirect:/view");
         }
 
