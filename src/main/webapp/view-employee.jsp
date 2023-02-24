@@ -74,9 +74,7 @@
 
             <%-- Add employee button --%>
 
-            <form action='add' method='post'>
-                <button class='btn btn-outline-primary' type='submit'>Add new employee</button>
-            </form>
+            <a class="btn btn-outline-primary" href="add">Add new employee</a>
 
         </div>
 
