@@ -12,10 +12,6 @@ import com.example.vistaraemployeemanager.model.Employee;
 @Service
 public class EmployeeService {
 
-    /*
-     * 1. Remove if and else response from the methods
-     */
-
     private boolean hasChange = true;
     private ArrayList<Employee> empList;
 
@@ -26,31 +22,28 @@ public class EmployeeService {
         this.employeeDao = employeeDao;
     }
 
-    public void add(Employee employee) throws Exception {
+    public int add(Employee employee) throws Exception {
         hasChange = true;
 
         var response = employeeDao.addAsync(employee);
 
-        if (response.get() == 0) System.out.println("Employee added: " + employee.getName());
-        else System.out.println("Unable to add employee: " + employee.getName());
+        return response.get();
     }
 
-    public void remove(int employeeID) throws Exception {
+    public int remove(int employeeID) throws Exception {
         hasChange = true;
 
         var response = employeeDao.removeAsync(employeeID);
 
-        if (response.get() == 0) System.out.println("Employee with ID: " + employeeID + " is removed");
-        else System.out.println("Unable to remove employee with ID: " + employeeID);
+        return response.get();
     }
 
-    public void update(int employeeID, Employee employee) throws Exception {
+    public int update(int employeeID, Employee employee) throws Exception {
         hasChange = true;
 
         var response = employeeDao.updateAsync(employeeID, employee);
 
-        if (response.get() == 0) System.out.println("Changes saved of ID: " + employeeID);
-        else System.out.println("Unable to save changes of ID: " + employeeID);
+        return response.get();
     }
 
     public ArrayList<Employee> getAllEmployees() throws Exception {
