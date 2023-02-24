@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -29,7 +28,7 @@ public class EmployeeController {
         return new RedirectView("add");
     }
 
-    @RequestMapping("/add")
+    @GetMapping("/add")
     public String showAdd() {
         return "add-employee.jsp";
     }
@@ -41,7 +40,7 @@ public class EmployeeController {
         return new RedirectView("view");
     }
 
-    @RequestMapping("/editEmployee")
+    @GetMapping("/editEmployee")
     public ModelAndView edit(int id) {
         var optEmployee = employeeService.getEmployee(id);
         if (optEmployee.isEmpty())
@@ -62,7 +61,7 @@ public class EmployeeController {
         return new RedirectView("view");
     }
 
-    @RequestMapping("/view")
+    @GetMapping("/view")
     public ModelAndView view(String p, String name) {
         if (name != null && !name.isBlank() && !name.isEmpty()) 
             return filteredView(name);
