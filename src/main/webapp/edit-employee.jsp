@@ -13,7 +13,7 @@
     rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet"/>
-    <script src="<c:url value="/resources/js/view.js" />"></script>
+    <script src="<c:url value="/resources/js/script.js" />"></script>
     <title>Edit employee</title>
 </head>
 <body>
