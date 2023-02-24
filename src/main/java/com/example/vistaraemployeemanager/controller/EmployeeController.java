@@ -28,6 +28,7 @@ public class EmployeeController {
 
     @PostMapping("/addEmployee")
     public RedirectView add(Employee employee) throws Exception {
+        // 1. Check employee obj before adding to the database
         employeeService.add(employee);
 
         return new RedirectView("add");

@@ -12,6 +12,10 @@ import com.example.vistaraemployeemanager.model.Employee;
 @Service
 public class EmployeeService {
 
+    /*
+     * 1. Remove if and else response from the methods
+     */
+
     private boolean hasChange = true;
     private ArrayList<Employee> empList;
 
