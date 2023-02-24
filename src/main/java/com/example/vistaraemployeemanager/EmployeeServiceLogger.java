@@ -11,13 +11,15 @@ import com.example.vistaraemployeemanager.model.Employee;
 @Component
 public class EmployeeServiceLogger {
 
+    private final AppLogger logger = AppLogger.getInstance();
+
     @AfterReturning(
         pointcut = "execution (int com.example.vistaraemployeemanager.service.EmployeeService.add(..))",
         returning =  "result")
     public void afterAdd(JoinPoint jp, int result) {
         var employee = (Employee)jp.getArgs()[0];
-        if (result == 0) System.out.println("Employee added: " + employee.getName());
-        else System.out.println("Unable to add employee: " + employee.getName());
+        if (result == 0) logger.info("Employee added: " + employee.getName());
+        else logger.info("Unable to add employee: " + employee.getName());
     }
 
     @AfterReturning(
@@ -25,8 +27,8 @@ public class EmployeeServiceLogger {
         returning =  "result")
     public void afterRemove(JoinPoint jp, int result) {
         var employeeId = (Integer)jp.getArgs()[0];
-        if (result == 0) System.out.println("Employee with ID: " + employeeId + " is removed");
-        else System.out.println("Unable to remove employee with ID: " + employeeId);
+        if (result == 0) logger.info("Employee with ID: " + employeeId + " is removed");
+        else logger.info("Unable to remove employee with ID: " + employeeId);
     }
 
     @AfterReturning(
@@ -34,7 +36,7 @@ public class EmployeeServiceLogger {
         returning =  "result")
     public void afterUpdate(JoinPoint jp, int result) {
         var employeeId = (Integer)jp.getArgs()[0];
-        if (result == 0) System.out.println("Changes saved of ID: " + employeeId);
-        else System.out.println("Unable to save changes of ID: " + employeeId);
+        if (result == 0) logger.info("Changes saved of ID: " + employeeId);
+        else logger.info("Unable to save changes of ID: " + employeeId);
     }
 }
