@@ -21,44 +21,16 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PostMapping("/addEmployee")
-    public RedirectView add(Employee employee) throws Exception {
-        employeeService.add(employee);
-
-        return new RedirectView("add");
-    }
-
     @GetMapping("/add")
     public String showAdd() {
         return "add-employee.jsp";
     }
 
-    @GetMapping("/deleteEmployee")
-    public RedirectView delete(@RequestParam int id) throws Exception {
-        employeeService.remove(id);
+    @PostMapping("/addEmployee")
+    public RedirectView add(Employee employee) throws Exception {
+        employeeService.add(employee);
 
-        return new RedirectView("view");
-    }
-
-    @GetMapping("/editEmployee")
-    public ModelAndView edit(int id) {
-        var optEmployee = employeeService.getEmployee(id);
-        if (optEmployee.isEmpty())
-            return new ModelAndView("view");
-        
-        var employee = optEmployee.get();
-        var mv = new ModelAndView();
-        mv.addObject("emp", employee);
-        mv.setViewName("edit-employee.jsp");
-
-        return mv;
-    }
-
-    @PostMapping("/saveEmployee")
-    public RedirectView save(Employee employee) throws Exception {
-        employeeService.update(employee.getId(), employee);
-
-        return new RedirectView("view");
+        return new RedirectView("add");
     }
 
     @GetMapping("/view")
@@ -96,5 +68,33 @@ public class EmployeeController {
         mv.setViewName("view-employee.jsp");
 
         return mv;
+    }
+
+    @GetMapping("/editEmployee")
+    public ModelAndView edit(int id) {
+        var optEmployee = employeeService.getEmployee(id);
+        if (optEmployee.isEmpty())
+            return new ModelAndView("view");
+        
+        var employee = optEmployee.get();
+        var mv = new ModelAndView();
+        mv.addObject("emp", employee);
+        mv.setViewName("edit-employee.jsp");
+
+        return mv;
+    }
+
+    @PostMapping("/saveEmployee")
+    public RedirectView save(Employee employee) throws Exception {
+        employeeService.update(employee.getId(), employee);
+
+        return new RedirectView("view");
+    }
+
+    @GetMapping("/deleteEmployee")
+    public RedirectView delete(@RequestParam int id) throws Exception {
+        employeeService.remove(id);
+
+        return new RedirectView("view");
     }
 }
