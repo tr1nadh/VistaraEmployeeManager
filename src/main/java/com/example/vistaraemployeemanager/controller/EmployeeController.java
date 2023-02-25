@@ -93,7 +93,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/deleteEmployee")
-    public RedirectView delete(@RequestParam int id) throws Exception {
+    public RedirectView delete(int id) throws Exception {
         employeeService.remove(id);
 
         return new RedirectView("view");
