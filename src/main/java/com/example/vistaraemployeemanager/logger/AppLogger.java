@@ -1,4 +1,4 @@
-package com.example.vistaraemployeemanager;
+package com.example.vistaraemployeemanager.logger;
 
 public class AppLogger {
     
