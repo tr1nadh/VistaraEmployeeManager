@@ -27,8 +27,8 @@ public class EmployeeServiceLogger {
         returning =  "result")
     public void afterRemove(JoinPoint jp, int result) {
         var employeeId = (Integer)jp.getArgs()[0];
-        if (result == 0) logger.info("Employee with ID: " + employeeId + " is removed");
-        else logger.info("Unable to remove employee with ID: " + employeeId);
+        if (result == 0) logger.info("Employee removed: " + employeeId);
+        else logger.info("Unable to remove employee: " + employeeId);
     }
 
     @AfterReturning(
@@ -36,7 +36,7 @@ public class EmployeeServiceLogger {
         returning =  "result")
     public void afterUpdate(JoinPoint jp, int result) {
         var employeeId = (Integer)jp.getArgs()[0];
-        if (result == 0) logger.info("Changes saved of ID: " + employeeId);
-        else logger.info("Unable to save changes of ID: " + employeeId);
+        if (result == 0) logger.info("Changes saved: " + employeeId);
+        else logger.info("Unable to save changes: " + employeeId);
     }
 }
