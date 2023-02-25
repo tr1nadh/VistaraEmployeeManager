@@ -51,18 +51,11 @@ public class EmployeeService {
         
         hasChange = false;
 
-        empList = employeeDao.getEmployeesAsync().get();
-        System.out.println("Successfully retrieved employees");
-        
-        return empList;
+        return employeeDao.getEmployeesAsync().get();
     }
 
     public Optional<Employee> getEmployee(int employeeID) {
-        var employee = employeeDao.getEmployee(employeeID);
-
-        System.out.println("Successfully retrieved employee with id: " + employeeID);
-        
-        return employee;
+        return employeeDao.getEmployee(employeeID);
     }
 
     public ArrayList<Employee> findEmployee(String name) {
