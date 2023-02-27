@@ -46,6 +46,6 @@ public class SessionController {
             return new ModelAndView("redirect:/view");
         }
 
-        return new ModelAndView("login-admin.jsp");
+        return new ModelAndView("login-admin");
     }
 }
