@@ -22,7 +22,7 @@ public class EmployeeController {
 
     @GetMapping("/add")
     public String showAdd() {
-        return "add-employee.jsp";
+        return "add-employee";
     }
 
     @PostMapping("/addEmployee")
