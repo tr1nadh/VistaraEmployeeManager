@@ -50,7 +50,7 @@ public class EmployeeController {
         mv.addObject("empList", empList);
         mv.addObject("next", next);
         mv.addObject("prev", prev);
-        mv.setViewName("view-employee.jsp");
+        mv.setViewName("view-employee");
 
         return mv;
     }
@@ -65,7 +65,7 @@ public class EmployeeController {
         var mv = new ModelAndView();
         mv.addObject("empList", empList);
         mv.addObject("next", -1);
-        mv.setViewName("view-employee.jsp");
+        mv.setViewName("view-employee");
 
         return mv;
     }
@@ -79,7 +79,7 @@ public class EmployeeController {
         var employee = optEmployee.get();
         var mv = new ModelAndView();
         mv.addObject("emp", employee);
-        mv.setViewName("edit-employee.jsp");
+        mv.setViewName("edit-employee");
 
         return mv;
     }
