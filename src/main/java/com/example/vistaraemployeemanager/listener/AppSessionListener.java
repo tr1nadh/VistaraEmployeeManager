@@ -1,10 +1,9 @@
 package com.example.vistaraemployeemanager.listener;
 
-import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
 
-@WebListener
+// @WebListener
 public class AppSessionListener extends Listener implements HttpSessionListener {
 
     @Override
