@@ -1,11 +1,5 @@
-# Vistara Employee Manager 4.0
-VEM is a basic CRUD Application made with Servlet, JSP, Hibernate, Bootstrap, HTML, CSS and JS.
-
-## Added
-**Authentication*  
-**Search bar*  
-**Pagination*  
-**Persistent session*
+# Vistara Employee Manager 5.0
+VEM is a basic CRUD Application made with Spring MVC, Hibernate, Bootstrap, HTML, CSS and JS.
 
 ## How to use
 Login with username *admin* and passowrd *pass*
