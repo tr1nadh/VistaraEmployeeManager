@@ -4,7 +4,7 @@ VEM is a basic CRUD Application made with Spring MVC, Hibernate, Bootstrap, HTML
 ## How to use
 Login with username *admin* and passowrd *pass*
 
-Demo: [Click here for demo](https://bit.ly/aws-top)
+Demo: [Click here for demo](https://bit.ly/aws-top) - (Known bugs)
 
 ## Screenshots
 ![Screenshot from 2023-02-05 10-50-31](https://user-images.githubusercontent.com/53462309/216803142-1d587e83-e80e-4691-94e7-d978d8422e3c.png)
